@@ -67,7 +67,7 @@ argv[2];
 
 printf("TCP_DISTORATIO = %d \n", TCP_DISTORATIO);
 printf("CR = %d COMPRESSION_RATIO = %d ENCODE = %d\n",CR,COMPRESSION_RATIO,ENCODE);
-printf("da_x0 = %d da_da_y0 = %d da_x1 = %d da_y1 = %d\n",da_x0, da_y0, da_x1, da_y1);
+printf("da_x0 = %d da_y0 = %d da_x1 = %d da_y1 = %d\n",da_x0, da_y0, da_x1, da_y1);
 printf("input %s output %s\n",argv[1],argv[2]);
 printf("*ff = 0x%x ff_in= %s\n",*ff,ff);
 printf("calling decom_test\n");
