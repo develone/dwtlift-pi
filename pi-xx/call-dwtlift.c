@@ -44,11 +44,12 @@ input lena_rgb_64.bmp output test.j2k
 */
 
 int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bp;
-int x0, y0, x1, y1, ENCODE;
+int da_x0, da_y0, da_x1, da_y1, ENCODE;
 //char *ff;
 char ff[]="test.j2k";
 long imgsz,him,wim, *bufferptr;
 int COMPRESSION_RATIO;
+void decom_test(int da_x0, int da_y0, int da_x1, int da_y1, char *ff_in);
 
 int main(int argc, char *argv[]) {
 
@@ -57,14 +58,20 @@ TCP_DISTORATIO=60;
 COMPRESSION_RATIO=1;
 CR = 25; 
 ENCODE = 1; 
-x0 = 0;
-y0 = 0;
-x1 = 256;
-y1= 256;
+da_x0 = 0;
+da_y0 = 0;
+da_x1 = 256;
+da_y1= 256;
 argv[1];
 argv[2];
-printf("CR %d COMPRESSION_RATIO %d ENCODE %d\n",CR,COMPRESSION_RATIO,ENCODE);
-printf("x0=%d y0=%d x1=%d y1=%d\n", x0, y0, x1, y1);
+
+printf("TCP_DISTORATIO = %d \n", TCP_DISTORATIO);
+printf("CR = %d COMPRESSION_RATIO = %d ENCODE = %d\n",CR,COMPRESSION_RATIO,ENCODE);
+printf("da_x0 = %d da_da_y0 = %d da_x1 = %d da_y1 = %d\n",da_x0, da_y0, da_x1, da_y1);
 printf("input %s output %s\n",argv[1],argv[2]);
-//decom_test(int x0, int y0, int x1, int y1,char *ff_in);
+printf("*ff = 0x%x ff_in= %s\n",*ff,ff);
+printf("calling decom_test\n");
+//decom_test(int da_x0, int da_y0, int da_x1, int da_y1, char *ff);
+printf("back from decom_test\n");
+return 0;
 }

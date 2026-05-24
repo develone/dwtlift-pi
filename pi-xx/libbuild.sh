@@ -13,4 +13,6 @@ ar rcs libopenjp2.a dwtlift.o
 cp libopenjp2.a libdwtlift.a
 ar t libdwtlift.a > libdwtlift_obj.txt
 echo "when ./libbuild.sh is executed should be 23"
+objdump -d  libdwtlift.a > libdwtlift.dis
+cat libdwtlift_obj.txt
 wc libdwtlift_obj.txt
