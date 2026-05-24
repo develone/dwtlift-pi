@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 /*
 devel@pi4-50:~/dwtlift-pi/src $ ./compile_pi.sh
 The word count here should be 22
@@ -43,13 +44,27 @@ input lena_rgb_64.bmp output test.j2k
 */
 
 int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bp;
-int x0, y0, x1, y1;
-char *ff_in;
+int x0, y0, x1, y1, ENCODE;
+//char *ff;
+char ff[]="test.j2k";
 long imgsz,him,wim, *bufferptr;
+int COMPRESSION_RATIO;
 
 int main(int argc, char *argv[]) {
+
+TCP_DISTORATIO=60;
+
+COMPRESSION_RATIO=1;
+CR = 25; 
+ENCODE = 1; 
+x0 = 0;
+y0 = 0;
+x1 = 256;
+y1= 256;
 argv[1];
 argv[2];
+printf("CR %d COMPRESSION_RATIO %d ENCODE %d\n",CR,COMPRESSION_RATIO,ENCODE);
+printf("x0=%d y0=%d x1=%d y1=%d\n", x0, y0, x1, y1);
 printf("input %s output %s\n",argv[1],argv[2]);
 //decom_test(int x0, int y0, int x1, int y1,char *ff_in);
 }
