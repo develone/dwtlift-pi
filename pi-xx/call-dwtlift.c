@@ -72,6 +72,7 @@ printf("input %s output %s\n",argv[1],argv[2]);
 printf("*ff = 0x%x ff_in= %s\n",*ff,ff);
 printf("calling decom_test\n");
 //decom_test(int da_x0, int da_y0, int da_x1, int da_y1, char *ff);
+decom_test(da_x0,da_y0,da_x1,da_y1,ff);
 printf("back from decom_test\n");
 return 0;
 }
