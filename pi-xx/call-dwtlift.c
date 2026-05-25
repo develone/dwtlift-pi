@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 /*
 devel@pi4-50:~/dwtlift-pi/src $ ./compile_pi.sh
 The word count here should be 22
@@ -34,7 +35,8 @@ devel@pi4-50:~/dwtlift-pi/pi-xx $ od -x ~/Ultibo_Projects/jpeg2000/RPi2/64decom
 0000020 0004 0000 0004 0000
 CR 25 DECODE 64 64
 64com or 64decom -> testfile
-decom_test(da_x0,da_y0,da_x1,da_y1,ff);
+void decom_test(da_x0,da_y0,da_x1,da_y1,ff);
+void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER,  int CR, int flg, int bp, long imgsz,long him,long wim, int *bufferptr);
 DrawBitmap(Window,'C:\MyBitmap.bmp',0,0,DECOMP,ENCODE,TCP_DISTORATIO,FILTER, COMPRESSION_RATIO,DIS_CR_FLG);
 devel@pi4-50:~/dwtlift-pi/pi-xx $ gcc -g  call-dwtlift.c -L. -ldwtlift -o call-dwtlift
 devel@pi4-50:~/dwtlift-pi/pi-xx $ ./call-dwtlift "lena_rgb_256.bmp" "test.j2k"

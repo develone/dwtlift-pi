@@ -1,3 +1,57 @@
+05/24/26
+
+steps to get a test.j2k from lena_rgb_256.bmp
+
+devel@pi5-70:~ $ git clone https://github.com/develone/openjpeg.git -b ultibo
+
+devel@pi5-70:~ $ cd openjpeg/
+
+devel@pi5-70:~/openjpeg $ cd build
+
+devel@pi5-70:~/openjpeg/build $ cmake ../
+
+devel@pi5-70:~/openjpeg/build $ make
+
+devel@pi5-70:~/openjpeg/build $ cd bin
+
+devel@pi5-70:~/openjpeg/build/bin $ ./opj_compress -r 25 -i ../../lena_rgb_256.bmp -o test.j2k
+
+[INFO] tile number 1 / 1
+[ERROR] opj_t2_encode_packet(): only 34 bytes remaining in output buffer. 67 needed.
+[ERROR] opj_t2_encode_packet(): only 237 bytes remaining in output buffer. 309 needed.
+[ERROR] opj_t2_encode_packet(): only 261 bytes remaining in output buffer. 309 needed.
+[ERROR] opj_t2_encode_packet(): only 261 bytes remaining in output buffer. 309 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[ERROR] opj_t2_encode_packet(): only 17 bytes remaining in output buffer. 18 needed.
+[INFO] Generated outfile test.j2k
+encode time: 32 ms 
+
 devel@pi5-80:~ $ git clone https://github.com/develone/dwtlift-pi.git
 
 devel@pi5-80:~ $ cd dwtlift-pi/src/
