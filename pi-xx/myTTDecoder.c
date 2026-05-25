@@ -3,6 +3,15 @@
 
 
 /*
+
+repo	https://github.com/develone/dwtlift-pi.git
+
+devel@pi4-50:~/dwtlift-pi/src $ ./compile_pi.sh
+
+devel@pi4-50:~/dwtlift-pi/pi-xx $ ./libbuild.sh
+
+devel@pi4-50:~/dwtlift-pi/pi-xx $ gcc -g myTTDecoder.c -L. -ldwtlift -lm -o myTTDecoder
+
 devel@pi4-50:~/dwtlift-pi/src $ ./compile_pi.sh
 The word count here should be 22
 the word count in /home/devel/jpeg-2000-test/bare-metal/openjp
