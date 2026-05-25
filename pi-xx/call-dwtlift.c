@@ -67,14 +67,27 @@ da_y1= 256;
 argv[1];
 argv[2];
 
+;
 printf("TCP_DISTORATIO = %d \n", TCP_DISTORATIO);
 printf("CR = %d COMPRESSION_RATIO = %d ENCODE = %d\n",CR,COMPRESSION_RATIO,ENCODE);
 printf("da_x0 = %d da_y0 = %d da_x1 = %d da_y1 = %d\n",da_x0, da_y0, da_x1, da_y1);
 printf("input %s output %s\n",argv[1],argv[2]);
 printf("*ff = 0x%x ff_in= %s\n",*ff,ff);
+
 printf("calling decom_test\n");
 //decom_test(int da_x0, int da_y0, int da_x1, int da_y1, char *ff);
 decom_test(da_x0,da_y0,da_x1,da_y1,ff);
 printf("back from decom_test\n");
+
+ //FILTER 0 5/3 DWT
+ //FILTER 1 9/7 DWT
+dec = 0;
+enc = 1;
+//printf("calling lift_config\n");
+printf("dec = %d enc = %d TCP_DISTORATIO = %d FILTER = %d \n",dec, enc, TCP_DISTORATIO, FILTER);
+printf("CR = %d flg = %d bp = %d imgsz  = %d \n",CR, flg, bp, imgsz);
+//lift_config(dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bp, imgsz, him, wim,  *bufferptr);
+//printf("back from lift_config\n");
+
 return 0;
 }
