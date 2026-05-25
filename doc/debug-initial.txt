@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=YzIBwqWC6EM
+https://github.com/MikeShah/Talks/tree/main/2022/2022_cppcon_debugging
 Chg'ed dwtlift.c
 
 devel@pi4-50:~/dwtlift-pi/pi-xx $ ./libbuild.sh
