@@ -93,35 +93,6 @@ drwxr-xr-x 6 devel devel    4096 May 24 15:45 ..
 -rw-r--r-- 1 devel devel    7877 May 24 16:01 test.j2k
 -rw-r--r-- 1 devel devel  196730 May 24 18:06 test_wr.bmp
 
-devel@pi5-80:~/dwtlift-pi/pi-xx $ ./call-dwtlift "lena_rgb_256.bmp" "test.j2k"
-TCP_DISTORATIO = 60 
-CR = 25 COMPRESSION_RATIO = 1 ENCODE = 1
-da_x0 = 0 da_y0 = 0 da_x1 = 256 da_y1 = 256
-input lena_rgb_256.bmp output test.j2k
-*ff = 0x74 ff_in= test.j2k
-calling decom_test
-In decom_test called by Pascal test.j2k 0 0 256 256 test.j2k
-0 0 256 256 test.j2k l_data_size 196608 0xa0e8c010 
-Start decompression: -1780641704 seconds -1779659930 useconds -981774 starting openjpeg
-l_stream 0x43970890
-In infile_format test.j2k reader 0x43971920
-test.j2k l_nb_read 12 0x43971920 0xff 0x4f 0xff 0x51 0x0 0x2f 0x0 0x0 0x0 0x0 0x1 0x0 
-[INFO] Start to read j2k main header (0).
-[INFO] Main header has been correctly decoded.
-[INFO] Setting decoding area to 0,0,256,256
-[INFO] Header of tile 1 / 1 has been read.
-Decompression time: 11123 seconds 0 useconds 11123 
-start writing: -15 seconds 0 useconds -15 starting openjpeg
-file name red data ptr 0xa0e8c010 size 65536 
-file name green data ptr 0xa0eac010 size 65536 
-file name blue data ptr 0xa0e9c010 size 65536 
-WR imagesize = 0x30000 
-Wr bpp = 24 
-Wr xresolution = 2835 yresolution 2835 
-File writes: -989112 seconds 1 useconds -989113 starting openjpeg
-back from decom_test
-
-
 devel@pi5-80:~/dwtlift-pi/pi-xx $ rm -f test_wr.bmp
 
 devel@pi5-80:~/dwtlift-pi/pi-xx $ ./call-dwtlift "lena_rgb_256.bmp" "test.j2k"
@@ -132,48 +103,24 @@ input lena_rgb_256.bmp output test.j2k
 *ff = 0x74 ff_in= test.j2k
 calling decom_test
 In decom_test called by Pascal test.j2k 0 0 256 256 test.j2k
-0 0 256 256 test.j2k l_data_size 196608 0x1cccc010 
-Start decompression: -1779758614 seconds -1779660644 useconds -97970 starting openjpeg
-l_stream 0x19a30890
-In infile_format test.j2k reader 0x19a31920
-test.j2k l_nb_read 12 0x19a31920 0xff 0x4f 0xff 0x51 0x0 0x2f 0x0 0x0 0x0 0x0 0x1 0x0 
+0 0 256 256 test.j2k l_data_size 196608 0xf737c010 
+Start decompression: -1780453770 seconds -1779678980 useconds -774790 starting openjpeg
+l_stream 0x73ef0890
+In infile_format test.j2k reader 0x73ef1920
+test.j2k l_nb_read 12 0x73ef1920 0xff 0x4f 0xff 0x51 0x0 0x2f 0x0 0x0 0x0 0x0 0x1 0x0 
 [INFO] Start to read j2k main header (0).
 [INFO] Main header has been correctly decoded.
 [INFO] Setting decoding area to 0,0,256,256
 [INFO] Header of tile 1 / 1 has been read.
-Decompression time: 18096 seconds 0 useconds 18096 
-start writing: -23 seconds 0 useconds -23 starting openjpeg
-file name red data ptr 0x1cccc010 size 65536 
-file name green data ptr 0x1ccec010 size 65536 
-file name blue data ptr 0x1ccdc010 size 65536 
+Decompression time: 11510 seconds 0 useconds 11510 
+start writing: -17 seconds 0 useconds -17 starting openjpeg
+file name red data ptr 0xf737c010 size 65536 
+file name green data ptr 0xf739c010 size 65536 
+file name blue data ptr 0xf738c010 size 65536 
 WR imagesize = 0x30000 
 Wr bpp = 24 
 Wr xresolution = 2835 yresolution 2835 
-File writes: 7121 seconds 0 useconds 7121 starting openjpeg
+File writes: 8699 seconds 0 useconds 8699 starting openjpeg
 back from decom_test
-devel@pi5-80:~/dwtlift-pi/pi-xx $ ls -la
-total 8764
-drwxr-xr-x 2 devel devel    4096 May 24 18:10 .
-drwxr-xr-x 6 devel devel    4096 May 24 15:45 ..
--rw-r--r-- 1 devel devel   65536 May 24 18:10 blue
--rwxr-xr-x 1 devel devel  945600 May 24 18:05 call-dwtlift
--rw-r--r-- 1 devel devel    2872 May 24 15:45 call-dwtlift.c
--rw-r--r-- 1 devel devel   35892 May 24 15:45 dwtlift.c
--rw-r--r-- 1 devel devel     304 May 24 15:45 dwtlift.h
--rw-r--r-- 1 devel devel   36024 May 24 18:06 dwtlift.o
--rw-r--r-- 1 devel devel    2354 May 24 15:53 format_defs.h
--rw-r--r-- 1 devel devel   65536 May 24 18:10 green
--rw-r--r-- 1 devel devel   49290 May 24 15:45 lena_rgb_128.bmp
--rw-r--r-- 1 devel devel  196730 May 24 15:45 lena_rgb_256.bmp
--rw-r--r-- 1 devel devel   12426 May 24 15:45 lena_rgb_64.bmp
--rwxr-xr-x 1 devel devel     420 May 24 15:45 libbuild.sh
--rw-r--r-- 1 devel devel 1496932 May 24 18:06 libdwtlift.a
--rw-r--r-- 1 devel devel 4222179 May 24 18:06 libdwtlift.dis
--rw-r--r-- 1 devel devel     192 May 24 18:06 libdwtlift_obj.txt
--rw-r--r-- 1 devel devel 1496932 May 24 18:06 libopenjp2.a
--rw-r--r-- 1 devel devel   54631 May 24 15:49 openjpeg.h
--rw-r--r-- 1 devel devel     332 May 24 15:52 opj_config.h
--rw-r--r-- 1 devel devel    2173 May 24 15:50 opj_stdint.h
--rw-r--r-- 1 devel devel   65536 May 24 18:10 red
--rw-r--r-- 1 devel devel    7877 May 24 16:01 test.j2k
--rw-r--r-- 1 devel devel  196730 May 24 18:10 test_wr.bmp
+dec = 0 enc = 1 TCP_DISTORATIO = 60 FILTER = 0 
+CR = 25 flg = 0 bp = 0 imgsz  = 0
