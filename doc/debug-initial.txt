@@ -1,0 +1,167 @@
+Chg'ed dwtlift.c
+
+devel@pi4-50:~/dwtlift-pi/pi-xx $ ./libbuild.sh
+
+devel@pi4-50:~/dwtlift-pi/pi-xx $ gcc -g myTTDecoder.c -L. -ldwtlift -lm -o myTTDecoder
+
+diff --git a/pi-xx/myTTDecoder.c b/pi-xx/myTTDecoder.c
+index d5e7aba..750aba2 100644
+--- a/pi-xx/myTTDecoder.c
++++ b/pi-xx/myTTDecoder.c
+@@ -55,39 +55,46 @@ void decom_test(int da_x0, int da_y0, int da_x1, int da_y1, char *ff_in);
+ 
+ int main(int argc, char *argv[]) {
+ 
+-TCP_DISTORATIO=60;
++/*TCP_DISTORATIO=60;
+ 
+ COMPRESSION_RATIO=1;
+ CR = 25; 
+-ENCODE = 1; 
+-da_x0 = 0;
+-da_y0 = 0;
+-da_x1 = 256;
+-da_y1= 256;
++ENCODE = 1;
+ argv[1];
+ argv[2];
++ 
++
++
+ 
+-;
+ printf("TCP_DISTORATIO = %d \n", TCP_DISTORATIO);
+ printf("CR = %d COMPRESSION_RATIO = %d ENCODE = %d\n",CR,COMPRESSION_RATIO,ENCODE);
+-printf("da_x0 = %d da_y0 = %d da_x1 = %d da_y1 = %d\n",da_x0, da_y0, da_x1, da_y1);
+ printf("input %s output %s\n",argv[1],argv[2]);
+-printf("*ff = 0x%x ff_in= %s\n",*ff,ff);
+-
+-printf("calling decom_test\n");
+-//decom_test(int da_x0, int da_y0, int da_x1, int da_y1, char *ff);
+-decom_test(da_x0,da_y0,da_x1,da_y1,ff);
+-printf("back from decom_test\n");
+-
+  //FILTER 0 5/3 DWT
+  //FILTER 1 9/7 DWT
+ dec = 0;
+ enc = 1;
+ //printf("calling lift_config\n");
++printf("back from decom_test\n");
++
++
+ printf("dec = %d enc = %d TCP_DISTORATIO = %d FILTER = %d \n",dec, enc, TCP_DISTORATIO, FILTER);
+ printf("CR = %d flg = %d bp = %d imgsz  = %d \n",CR, flg, bp, imgsz);
+ //lift_config(dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bp, imgsz, him, wim,  *bufferptr);
+ //printf("back from lift_config\n");
+ 
++
++*/
++da_x0 = 0;
++da_y0 = 0;
++da_x1 = 256;
++da_y1= 256;
++
++printf("da_x0 = %d da_y0 = %d da_x1 = %d da_y1 = %d\n",da_x0, da_y0, da_x1, da_y1);
++
++printf("*ff = 0x%x ff_in= %s\n",*ff,ff);
++
++printf("calling decom_test\n");
++//decom_test(int da_x0, int da_y0, int da_x1, int da_y1, char *ff);
++decom_test(da_x0,da_y0,da_x1,da_y1,ff);
+ return 0;
+ }
+\ No newline at end of file
+diff --git a/pi-xx/dwtlift.c b/pi-xx/dwtlift.c
+index e799efc..39acdb4 100644
+--- a/pi-xx/dwtlift.c
++++ b/pi-xx/dwtlift.c
+@@ -1256,7 +1256,7 @@ void decom_test(int x0, int y0, int x1, int y1,char *ff_in) {
+     const char *input_file;
+     input_file = ff_in;
+     
+-	printf("In decom_test called by Pascal %s %d %d %d %d %s\n",input_file,x0,y0,x1,y1,ff_in);
++	printf("In decom_test called by C myTTDecoder.c %s %d %d %d %d %s\n",input_file,x0,y0,x1,y1,ff_in);
+ 	decompress(x0, y0, x1, y1,ff_in);	
+ }
+  
+devel@pi4-50:~/dwtlift-pi/pi-xx $ gdb ./myTTDecoder 
+GNU gdb (Debian 13.1-3) 13.1
+Copyright (C) 2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "aarch64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./myTTDecoder...
+
+(gdb) start
+Temporary breakpoint 1 at 0x2de4: file myTTDecoder.c, line 87.
+Starting program: /home/devel/dwtlift-pi/pi-xx/myTTDecoder 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/aarch64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 1, main (argc=1, argv=0x7ffffff128) at myTTDecoder.c:87
+87	da_x0 = 0;
+
+(gdb) list
+82	//lift_config(dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bp, imgsz, him, wim,  *bufferptr);
+83	//printf("back from lift_config\n");
+84	
+85	
+86	*/
+87	da_x0 = 0;
+88	da_y0 = 0;
+89	da_x1 = 256;
+90	da_y1= 256;
+
+(gdb) n 4
+92	printf("da_x0 = %d da_y0 = %d da_x1 = %d da_y1 = %d\n",da_x0, da_y0, da_x1, da_y1
+
+(gdb) l
+87	da_x0 = 0;
+88	da_y0 = 0;
+89	da_x1 = 256;
+90	da_y1= 256;
+91	
+92	printf("da_x0 = %d da_y0 = %d da_x1 = %d da_y1 = %d\n",da_x0, da_y0, da_x1, da_y1);
+93	
+94	printf("*ff = 0x%x ff_in= %s\n",*ff,ff);
+95	
+96	printf("calling decom_test\n");
+
+(gdb) n 3
+da_x0 = 0 da_y0 = 0 da_x1 = 256 da_y1 = 256
+*ff = 0x74 ff_in= test.j2k
+calling decom_test
+98	decom_test(da_x0,da_y0,da_x1,da_y1,ff);
+
+(gdb) s
+In decom_test called by C myTTDecoder.c test.j2k 0 0 256 256 test.j2k
+0 0 256 256 test.j2k l_data_size 196608 0xf7d1f010 
+Start decompression: -1779791048 seconds -1779736763 useconds -54285 starting openjpeg
+l_stream 0x555e1890
+In infile_format test.j2k reader 0x555e2920
+test.j2k l_nb_read 12 0x555e2920 0xff 0x4f 0xff 0x51 0x0 0x2f 0x0 0x0 0x0 0x0 0x1 0x0 
+[INFO] Start to read j2k main header (0).
+[INFO] Main header has been correctly decoded.
+[INFO] Setting decoding area to 0,0,256,256
+[INFO] Header of tile 1 / 1 has been read.
+Decompression time: 53847 seconds 0 useconds 53847 
+start writing: -57 seconds 0 useconds -57 starting openjpeg
+file name red data ptr 0xf7d1f010 size 65536 
+file name green data ptr 0xf7d3f010 size 65536 
+file name blue data ptr 0xf7d2f010 size 65536 
+WR imagesize = 0x30000 
+Wr bpp = 24 
+Wr xresolution = 2835 yresolution 2835 
+File writes: 21863 seconds 0 useconds 21863 starting openjpeg
+99	return 0;
+
