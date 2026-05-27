@@ -10,7 +10,7 @@ devel@pi4-50:~/dwtlift-pi/src $ ./compile_pi.sh
 
 devel@pi4-50:~/dwtlift-pi/pi-xx $ ./libbuild.sh
 
-devel@pi4-50:~/dwtlift-pi/pi-xx $ gcc -g myTTDecoder.c -L. -ldwtlift -lm -o myTTDecoder
+devel@pi5-90:~/dwtlift-pi/pi-myTTDecoder $ gcc -Wall -Werror -g myTTDecoder.c -L. -ldwtlift -lm -o myTTDecoder
 
 devel@pi4-50:~/dwtlift-pi/src $ ./compile_pi.sh
 The word count here should be 22

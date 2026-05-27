@@ -27,7 +27,35 @@
 /* set this macro to enable profiling for the given test */
 /* warning : in order to be effective, openjpeg must have been built with profiling enabled !! */
 /*#define _PROFILE*/
+
+/*
+#define hangup
+Will add 
+In hang_up 
+Enter an integer:
+Enables the following code
+#ifdef hangup
+    int hang_up = 1,myNumber;
+    while(hang_up == 1) {
+        printf("In hang_up \n");
  
+    printf("Enter an integer: ");
+    
+    // Read the input and store it in myNumber
+    scanf("%d", &myNumber);
+    
+        printf("You entered: %d\n", myNumber);
+        hang_up = myNumber;
+    }
+#endif
+requires the next steps
+
+devel@pi5-90:~/dwtlift-pi/pi-myTTDecoder $ ./libbuild.sh
+devel@pi5-90:~/dwtlift-pi/pi-myTTDecoder $ gcc -g myTTDecoder.c -L. -ldwtlift -lm -o myTTDecoder
+devel@pi5-90:~/dwtlift-pi/pi-myTTDecoder $ ./myTTDecoder
+*/
+ 
+
 #include <stdio.h>
  
 #include "dwtlift.h"
@@ -439,6 +467,21 @@ int get_file_format(const char *filename) {
 
 int decompress(int da_x0, int da_y0, int da_x1, int da_y1,const char *input_file)
 {
+    printf("In decompress\n");
+#ifdef hangup
+    int hang_up = 1,myNumber;
+    while(hang_up == 1) {
+        printf("In hang_up \n");
+ 
+    printf("Enter an integer: ");
+    
+    // Read the input and store it in myNumber
+    scanf("%d", &myNumber);
+    
+        printf("You entered: %d\n", myNumber);
+        hang_up = myNumber;
+    }
+#endif
 		/*
 		char lclip = (char *)*bufferptr;
 		char *r_decompress,*g_decompress,*b_decompress;
@@ -1255,7 +1298,20 @@ void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER, int CR, int f
 void decom_test(int x0, int y0, int x1, int y1,char *ff_in) {
     const char *input_file;
     input_file = ff_in;
+#ifdef hangup
+    int hang_up = 1,myNumber;
+    while(hang_up == 1) {
+	printf("In hang_up \n");
+
+    printf("Enter an integer: ");
     
+    // Read the input and store it in myNumber
+    scanf("%d", &myNumber);
+    
+    	printf("You entered: %d\n", myNumber);
+    	hang_up = myNumber;
+    }
+#endif 
 	printf("In decom_test called by C myTTDecoder.c %s %d %d %d %d %s\n",input_file,x0,y0,x1,y1,ff_in);
 	decompress(x0, y0, x1, y1,ff_in);	
 }
