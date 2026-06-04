@@ -105,8 +105,9 @@ typedef struct {
 } bitmap_header;
 #pragma pack(pop)
 
-	//const char *bufferptr;
-        int n;
+	const char *bufferptr;
+	//printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr,*bufferptr);
+        int n,loop;
 	char fname[] = "lena_rgb_256.bmp";
 	//*bufferptr = buffer;
 	//printf("0x%x *bufferptr\n",bufferptr);
@@ -121,11 +122,11 @@ typedef struct {
          
         bitmap_header* hp;
         
-        FILE *in,*fp;
+        FILE *in;
         
         //open the input file
         in = fopen(fname, "rb");
-        if(fp == NULL){
+        if(in == NULL){
            //cleanup
            printf("Unable to open file for reading!");
         }
@@ -136,17 +137,13 @@ typedef struct {
         hp=(bitmap_header*)malloc(sizeof(sizeof(bitmap_header)));
         
  
-        printf("hp 0x%x *info 0x%x \n",hp,*hp);
+        printf("hp 0x%x *hp 0x%x \n",hp,*hp);
  
         n=fread(hp, sizeof(bitmap_header), 1, in);
         printf("number of header points %d \n",n);
         printf("n %d \n",n);
 
-       //Read the input file headers:
-       //in=(INFOHEADER*)malloc(sizeof(info));
-//char buffer[][];
-//struct RGB bufferpt;
-//RGB** = createMatrix();
+ 
 
 
 	printf("dec = %d enc = %d TCP_DISTORATIO = %d FILTER = %d \n",dec, enc, TCP_DISTORATIO, FILTER);
@@ -159,11 +156,25 @@ typedef struct {
         printf("hp->width %d hp->height %d \n",hp->width, hp->height);
  
         printf("hp->bitmapsize %d \n",hp->bitmapsize);
+
+        bufferptr = (char*)malloc(hp->bitmapsize);
+
+	printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr, *bufferptr);
+    	fseek(in,sizeof(char)*hp->fileheader.dataoffset,SEEK_SET);
+    	n=fread(bufferptr,sizeof(char),hp->bitmapsize, in);
+    	printf("number of data points %d \n",n);
+	for(loop=0;loop<8;loop++) {
+    		printf("loop %d data %x data %d \n",loop,*bufferptr, *bufferptr);
+		bufferptr++;
+    	}
+    	//printf("before loop data %s \n",data);
+        bufferptr = bufferptr - loop;
         printf("calling lift_config\n");
-	//lift_config(dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz, him, wim,  *bufferptr);
+	lift_config(dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz, him, wim, (char) *bufferptr);
 	printf("back from lift_config\n");
         free(in);
         free(hp);
+        free(bufferptr);
 
 
  
