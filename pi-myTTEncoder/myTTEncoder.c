@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "format_defs.h"
+#include "openjpeg.h"
+#include "opj_config.h"
 
 /*
 
@@ -10,7 +12,9 @@ devel@pi4-50:~/dwtlift-pi/src $ ./compile_pi.sh
 
 devel@pi4-50:~/dwtlift-pi/pi-xx $ ./libbuild.sh
 
-devel@pi5-90:~/dwtlift-pi/pi-myTTDecoder $ gcc -Wall -Werror -g myTTEncoder.c -L. -ldwtlift -lm -o myTTEncoder
+devel@pi5-90:~/dwtlift-pi/pi-myTTDecoder $ 
+gcc -Wall -Werror -g myTTEncoder.c -L. -ldwtlift -lm -o myTTEncoder 
+gcc -g myTTEncoder.c -L. -ldwtlift -lm -o myTTEncoder
 
 devel@pi4-50:~/dwtlift-pi/src $ ./compile_pi.sh
 The word count here should be 22
@@ -45,6 +49,9 @@ devel@pi4-50:~/dwtlift-pi/pi-xx $ od -x ~/Ultibo_Projects/jpeg2000/RPi2/64decom
 CR 25 DECODE 64 64
 64com or 64decom -> testfile
 void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER,  int CR, int flg, int bp, long imgsz,long him,long wim, int *bufferptr);
+
+
+
 DrawBitmap(Window,'C:\MyBitmap.bmp',0,0,DECOMP,ENCODE,TCP_DISTORATIO,FILTER, COMPRESSION_RATIO,DIS_CR_FLG);
 devel@pi4-50:~/dwtlift-pi/pi-xx $ gcc -g  call-dwtlift.c -L. -ldwtlift -o call-dwtlift
 devel@pi4-50:~/dwtlift-pi/pi-xx $ ./call-dwtlift "lena_rgb_256.bmp" "test.j2k"
@@ -62,23 +69,84 @@ long imgsz,him,wim;
 int TCP_DISTORATIO=60; 
 int COMPRESSION_RATIO=1,CR = 25,ENCODE = 1;
 
+typedef struct
+    {
+        unsigned char RGB[3];
+    }RGB; 
+
 void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER,  int CR, int flg, int bpp, long imgsz,long him,long wim, int *bufferptr);
 
+RGB** createMatrix();
 
 int main(int argc, char *argv[]) {
+#pragma pack(push,1)
+/* Windows 3.x bitmap file header */
+typedef struct {
+    char         filetype[2];   /* magic - always 'B' 'M' */
+    unsigned int filesize;
+    short        reserved1;
+    short        reserved2;
+    unsigned int dataoffset;    /* offset in bytes to actual bitmap data */
+} file_header;
+
+typedef struct {
+    file_header  fileheader;
+    unsigned int headersize;
+    int          width;
+    int          height;
+    short        planes;
+    short        bitsperpixel;  /* we only support the value 24 here */
+    unsigned int compression;   /* we do not support compression */
+    unsigned int bitmapsize;
+    int          horizontalres;
+    int          verticalres;
+    unsigned int numcolors;
+    unsigned int importantcolors;
+} bitmap_header;
+#pragma pack(pop)
 
 	//const char *bufferptr;
-	char buffer[] = "lena_rgb_256.bmp";
+        int n;
+	char fname[] = "lena_rgb_256.bmp";
 	//*bufferptr = buffer;
 	//printf("0x%x *bufferptr\n",bufferptr);
-	printf("buffer = %s  \n",buffer);
+	//printf("fname = %s  \n",fname);
 	dec = 6;
 	enc = 1;
 	bpp = 24;
 	wim = 256;
 	him = 256;
+ 
+        
+         
+        bitmap_header* hp;
+        
+        FILE *in,*fp;
+        
+        //open the input file
+        in = fopen(fname, "rb");
+        if(fp == NULL){
+           //cleanup
+           printf("Unable to open file for reading!");
+        }
+        else printf("opening fname = %s  in 0x%x \n", fname, in);
+        
+        //malloc for INFOHEADER
+         
+        hp=(bitmap_header*)malloc(sizeof(sizeof(bitmap_header)));
+        
+ 
+        printf("hp 0x%x *info 0x%x \n",hp,*hp);
+ 
+        n=fread(hp, sizeof(bitmap_header), 1, in);
+        printf("number of header points %d \n",n);
+        printf("n %d \n",n);
 
-
+       //Read the input file headers:
+       //in=(INFOHEADER*)malloc(sizeof(info));
+//char buffer[][];
+//struct RGB bufferpt;
+//RGB** = createMatrix();
 
 
 	printf("dec = %d enc = %d TCP_DISTORATIO = %d FILTER = %d \n",dec, enc, TCP_DISTORATIO, FILTER);
@@ -87,10 +155,15 @@ int main(int argc, char *argv[]) {
 	printf("FILTER 0 5/3 DWT FILTER 1 9/7 DWT\n"); 
  	//FILTER 0 5/3 DWT
  	//FILTER 1 9/7 DWT
-
-	printf("calling lift_config\n"); 
+ 
+        printf("hp->width %d hp->height %d \n",hp->width, hp->height);
+ 
+        printf("hp->bitmapsize %d \n",hp->bitmapsize);
+        printf("calling lift_config\n");
 	//lift_config(dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz, him, wim,  *bufferptr);
 	printf("back from lift_config\n");
+        free(in);
+        free(hp);
 
 
  
