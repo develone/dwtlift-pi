@@ -79,6 +79,21 @@ static void info_callback(const char *msg, void *client_data);
 #define J2K_CODESTREAM_MAGIC "\xff\x4f\xff\x51"
 int height, width;
 /* -------------------------------------------------------------------------- */
+struct CompressImage {
+int dec; 
+int enc; 
+int TCP_DISTORATIO;
+int FILTER;  
+int CR; 
+int flg;
+int bpp;
+int imgsz;
+int him;
+int wim;
+char *bufferptr;
+};
+
+
 typedef struct
     {
         unsigned char RGB[3];
@@ -842,12 +857,36 @@ static void info_callback(const char *msg, void *client_data) {
 struct GPU_FFT_HOST {
     unsigned mem_flg, mem_map, peri_addr, peri_size;
 };
-void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER, int CR, int flg, int bp, long imgsz,long him,long wim, int *bufferptr)
+
+// Function accepts a pointer to the structure
+void updatecompressimage(struct CompressImage *s) 
+{
+printf(" updatecompressimage \n");
+printf("poter passed s 0x%x \n",s);
+  
+int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz;
+dec = s->dec;
+enc = s->enc;
+TCP_DISTORATIO = s->TCP_DISTORATIO;
+printf("dec %d enc %d TCP_DISTORATIO %d \n",dec, enc, TCP_DISTORATIO);
+
+
+CR = s->CR;
+imgsz = s->imgsz;
+printf("CR %d imgsz %d\n",CR,imgsz);
+
+char *bufferptr;
+bufferptr = s->bufferptr;
+printf("*bufferptr 0x%x \n",bufferptr);
+}
+
+void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER, int CR, int flg, int bp, long imgsz,long him,long wim, char *bufferptr)
 {
 	struct GPU_FFT_HOST host;
 	
 	printf ("Hello Ultibo from C!! Called by Pascal ");
-	
+	printf("size %ld ",imgsz);
+	printf("pointer passed  %x ",bufferptr);
 
 	printf("starting compression: %ld seconds %ld useconds %ld \n", mtime,seconds, useconds);
 	int height, width;
@@ -861,13 +900,12 @@ void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER, int CR, int f
 	decomp = dec;
 	encode = enc;
 	
- 	
+	
 	char *lclip = (char *)*bufferptr;
 	printf("In lift_config first byte 0x%x\n",lclip[0]);
 	printf("bpp %ld\n",bp);
 
-	printf("size %ld ",imgsz);
-	printf("pointer passed %x %x ",*bufferptr,bufferptr);
+	
 
 
 	/* Need to determine the ww width & hh height 

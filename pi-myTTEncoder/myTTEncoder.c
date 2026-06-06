@@ -48,7 +48,7 @@ devel@pi4-50:~/dwtlift-pi/pi-xx $ od -x ~/Ultibo_Projects/jpeg2000/RPi2/64decom
 0000020 0004 0000 0004 0000
 CR 25 DECODE 64 64
 64com or 64decom -> testfile
-void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER,  int CR, int flg, int bp, long imgsz,long him,long wim, int *bufferptr);
+void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER, int CR, int flg, int bp, long imgsz,long him,long wim, char bufferptr);
 
 
 
@@ -60,7 +60,20 @@ devel@pi4-50:~/dwtlift-pi/pi-xx $ ./call-dwtlift "lena_rgb_64.bmp" "test.j2k"
 input lena_rgb_64.bmp output test.j2k
 */
 
-
+struct CompressImage {
+int dec; 
+int enc; 
+int TCP_DISTORATIO;
+int FILTER;  
+int CR; 
+int flg;
+int bpp;
+int imgsz;
+int him;
+int wim;
+char *bufferptr;
+};
+struct CompressImage s1 = {6,1,60,0,25,1,24,196608,256,256,0};
 int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp;
 //int da_x0, da_y0, da_x1, da_y1;
 //char *ff;
@@ -74,7 +87,7 @@ typedef struct
         unsigned char RGB[3];
     }RGB; 
 
-void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER,  int CR, int flg, int bpp, long imgsz,long him,long wim, int *bufferptr);
+void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER,  int CR, int flg, int bpp, long imgsz,long him,long wim, char bufferptr);
 
 RGB** createMatrix();
 
@@ -105,7 +118,7 @@ typedef struct {
 } bitmap_header;
 #pragma pack(pop)
 
-	const char *bufferptr;
+	char  *bufferptr;
 	//printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr,*bufferptr);
         int n,loop;
 	char fname[] = "lena_rgb_256.bmp";
@@ -157,20 +170,35 @@ typedef struct {
  
         printf("hp->bitmapsize %d \n",hp->bitmapsize);
 
+        printf("Allocating memory for data\n");
         bufferptr = (char*)malloc(hp->bitmapsize);
-
+        s1.bufferptr = bufferptr;
 	printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr, *bufferptr);
     	fseek(in,sizeof(char)*hp->fileheader.dataoffset,SEEK_SET);
     	n=fread(bufferptr,sizeof(char),hp->bitmapsize, in);
     	printf("number of data points %d \n",n);
 	for(loop=0;loop<8;loop++) {
     		printf("loop %d data %x data %d \n",loop,*bufferptr, *bufferptr);
+                printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr, *bufferptr);
 		bufferptr++;
     	}
     	//printf("before loop data %s \n",data);
         bufferptr = bufferptr - loop;
+        printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr, *bufferptr);
         printf("calling lift_config\n");
-	lift_config(dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz, him, wim, (char) *bufferptr);
+        printf("s1 0x%x \n",&s1);
+        printf("s1.dec %d \n",s1.dec);
+        printf("s1.enc %d \n",s1.enc);
+        printf("s1.TCP_DISTORATIO %d \n",s1.TCP_DISTORATIO);
+        printf("s1.CR %d \n",s1.CR);
+        printf("s1.flg %d \n",s1.flg); 
+        printf("s1.bpp %d \n",s1.bpp);
+        printf("s1.imgsz %d \n",s1.imgsz);
+        printf("s1.him %d \n",s1.him);
+        printf("s1.wim %d \n",s1.wim);
+        printf("s1.*bufferptr  0x%x \n",s1.bufferptr);
+	updatecompressimage(&s1);
+	//lift_config(dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz, him, wim,   bufferptr);
 	printf("back from lift_config\n");
         free(in);
         free(hp);
