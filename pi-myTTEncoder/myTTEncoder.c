@@ -73,6 +73,8 @@ int him;
 int wim;
 char *bufferptr;
 };
+
+//setting intial values in struct CompressImage
 struct CompressImage s1 = {6,1,60,0,25,1,24,196608,256,256,0};
 int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp;
 //int da_x0, da_y0, da_x1, da_y1;
@@ -125,11 +127,7 @@ typedef struct {
 	//*bufferptr = buffer;
 	//printf("0x%x *bufferptr\n",bufferptr);
 	//printf("fname = %s  \n",fname);
-	dec = 6;
-	enc = 1;
-	bpp = 24;
-	wim = 256;
-	him = 256;
+
  
         
          
@@ -159,21 +157,24 @@ typedef struct {
  
 
 
-	printf("dec = %d enc = %d TCP_DISTORATIO = %d FILTER = %d \n",dec, enc, TCP_DISTORATIO, FILTER);
-	printf("CR = %d flg = %d bp = %d imgsz  = 0x%lx \n",CR, flg, bpp, imgsz);
-	printf("him = %ld wim = %ld \n",him,wim);
-	printf("FILTER 0 5/3 DWT FILTER 1 9/7 DWT\n"); 
  	//FILTER 0 5/3 DWT
  	//FILTER 1 9/7 DWT
- 
-        printf("hp->width %d hp->height %d \n",hp->width, hp->height);
- 
-        printf("hp->bitmapsize %d \n",hp->bitmapsize);
+
+        s1.wim = hp->width;
+	s1.him = hp->height;
+        printf("s1.wim %d s1.him %d \n",s1.wim, s1.him);
+
+        s1.bpp = hp->bitsperpixel;
+        printf("s1.bpp %d \n", s1.bpp);
+
+        s1.imgsz = hp->bitmapsize;
+        printf("s1.imgsz %d \n",s1.imgsz);
 
         printf("Allocating memory for data\n");
-        bufferptr = (char*)malloc(hp->bitmapsize);
+        bufferptr = (char*)malloc(s1.imgsz);
         s1.bufferptr = bufferptr;
-	printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr, *bufferptr);
+	printf("s1.bufferptr 0x%x    \n",s1.bufferptr);
+
     	fseek(in,sizeof(char)*hp->fileheader.dataoffset,SEEK_SET);
     	n=fread(bufferptr,sizeof(char),hp->bitmapsize, in);
     	printf("number of data points %d \n",n);
