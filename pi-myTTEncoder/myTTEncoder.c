@@ -48,7 +48,7 @@ devel@pi4-50:~/dwtlift-pi/pi-xx $ od -x ~/Ultibo_Projects/jpeg2000/RPi2/64decom
 0000020 0004 0000 0004 0000
 CR 25 DECODE 64 64
 64com or 64decom -> testfile
-void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER, int CR, int flg, int bp, long imgsz,long him,long wim, char bufferptr);
+//void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER, int CR, int flg, int bp, long imgsz,long him,long wim, char bufferptr);
 
 
 
@@ -89,8 +89,8 @@ typedef struct
         unsigned char RGB[3];
     }RGB; 
 
-void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER,  int CR, int flg, int bpp, long imgsz,long him,long wim, char bufferptr);
-
+//void lift_config(void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER,  int CR, int flg, int bpp, long imgsz,long him,long wim, char bufferptr);
+void lift_config(struct CompressImage *s);
 RGB** createMatrix();
 
 int main(int argc, char *argv[]) {
@@ -186,7 +186,7 @@ typedef struct {
     	//printf("before loop data %s \n",data);
         bufferptr = bufferptr - loop;
         printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr, *bufferptr);
-        printf("calling lift_config\n");
+        
         printf("s1 0x%x \n",&s1);
         printf("s1.dec %d \n",s1.dec);
         printf("s1.enc %d \n",s1.enc);
@@ -198,7 +198,10 @@ typedef struct {
         printf("s1.him %d \n",s1.him);
         printf("s1.wim %d \n",s1.wim);
         printf("s1.*bufferptr  0x%x \n",s1.bufferptr);
-	updatecompressimage(&s1);
+	//updatecompressimage(&s1);
+
+  printf("calling lift_config\n"); 
+  lift_config(&s1);
 	//lift_config(dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz, him, wim,   bufferptr);
 	printf("back from lift_config\n");
         free(in);
