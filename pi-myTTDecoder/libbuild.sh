@@ -6,7 +6,7 @@ rm -f libopenjp2.a
 #cp  libopenjp2_816f53.a libopenjp2.a 
 cp  ../src/libopenjp2.a libopenjp2.a 
 
-gcc -L. -llibopenjp2  -c dwtlift.c
+gcc -g -L. -llibopenjp2  -c dwtlift.c
 
 ar rcs libopenjp2.a dwtlift.o 
 

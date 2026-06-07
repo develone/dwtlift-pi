@@ -79,6 +79,21 @@ static void info_callback(const char *msg, void *client_data);
 #define J2K_CODESTREAM_MAGIC "\xff\x4f\xff\x51"
 int height, width;
 /* -------------------------------------------------------------------------- */
+struct CompressImage {
+int dec; 
+int enc; 
+int TCP_DISTORATIO;
+int FILTER;  
+int CR; 
+int flg;
+int bpp;
+int imgsz;
+int him;
+int wim;
+char *bufferptr;
+};
+
+
 typedef struct
     {
         unsigned char RGB[3];
@@ -842,32 +857,82 @@ static void info_callback(const char *msg, void *client_data) {
 struct GPU_FFT_HOST {
     unsigned mem_flg, mem_map, peri_addr, peri_size;
 };
-void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER, int CR, int flg, int bp, long imgsz,long him,long wim, int *bufferptr)
+
+// Function accepts a pointer to the structure
+/*
+void updatecompressimage(struct CompressImage *s) 
 {
+printf(" updatecompressimage \n");
+printf("poter passed s 0x%x \n",s);
+  
+int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz;
+dec = s->dec;
+enc = s->enc;
+TCP_DISTORATIO = s->TCP_DISTORATIO;
+printf("dec %d enc %d TCP_DISTORATIO %d \n",dec, enc, TCP_DISTORATIO);
+
+
+CR = s->CR;
+imgsz = s->imgsz;
+printf("CR %d imgsz %d\n",CR,imgsz);
+
+char *bufferptr;
+bufferptr = s->bufferptr;
+printf("*bufferptr 0x%x \n",bufferptr);
+}
+*/
+void lift_config(struct CompressImage *s)
+//void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER, int CR, int flg, int bp, long imgsz,long him,long wim, char *bufferptr)
+{
+printf("In lift_config \n");
+printf("struct pointer passed s 0x%x \n",s);
+  
+int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz, him, wim;
+dec = s->dec;
+enc = s->enc;
+bpp = s->bpp;
+flg = s->flg;
+TCP_DISTORATIO = s->TCP_DISTORATIO;
+printf("dec %d enc %d TCP_DISTORATIO %d \n",dec, enc, TCP_DISTORATIO);
+printf("bpp %d flg %d \n",bpp,flg);
+him = s->him;
+wim = s->wim;
+printf("him %d wim %d \n",him,wim);
+CR = s->CR;
+imgsz = s->imgsz;
+printf("CR %d imgsz %d\n",CR,imgsz);
+
+char *bufferptr;
+bufferptr = s->bufferptr;
+
+printf("If lena_rgb_256.bmp the value displayed next should 56 \n");
+printf("data bufferptr 0x%x first byte %d \n",bufferptr, *bufferptr);
+
 	struct GPU_FFT_HOST host;
 	
 	printf ("Hello Ultibo from C!! Called by Pascal ");
-	
-
+	printf("size %ld ",imgsz);
+	printf("pointer passed  %x ",bufferptr);
+  
 	printf("starting compression: %ld seconds %ld useconds %ld \n", mtime,seconds, useconds);
 	int height, width;
 	int TopDown,plot;
 	TopDown = 0;
 	plot = 0;
 	
-	if (flg==0) printf("in lift_config dec %d enc %d compression CR %d bpp %d flg %d him %d wim %d\n", dec,enc,CR,bp,flg,him,wim);
-	else printf("in lift_config dec %d enc %d distoratio %d bpp %d CR %d flg %d him wim %d%d\n", dec,enc,TCP_DISTORATIO,bp,CR,flg,him,wim);
+	if (flg==0) printf("in lift_config dec %d enc %d compression CR %d bpp %d flg %d him %d wim %d\n", dec,enc,CR,bpp,flg,him,wim);
+	else printf("in lift_config dec %d enc %d distoratio %d bpp %d CR %d flg %d him wim %d%d\n", dec,enc,TCP_DISTORATIO,bpp,CR,flg,him,wim);
 	
 	decomp = dec;
 	encode = enc;
+	printf("decomp %d encode %d \n",decomp,encode);
 	
- 	
-	char *lclip = (char *)*bufferptr;
+	char *lclip = (char *)bufferptr;
 	printf("In lift_config first byte 0x%x\n",lclip[0]);
-	printf("bpp %ld\n",bp);
+	//printf("bpp %ld\n",bp);
+  printf("bpp %d\n",bpp);
 
-	printf("size %ld ",imgsz);
-	printf("pointer passed %x %x ",*bufferptr,bufferptr);
+	
 
 
 	/* Need to determine the ww width & hh height 
