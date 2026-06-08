@@ -123,7 +123,7 @@ typedef struct {
 	char  *bufferptr;
 	//printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr,*bufferptr);
         int n,loop;
-	char fname[] = "lena_rgb_256.bmp";
+	char fname[] = "lena_rgb_2048.bmp";
 	//*bufferptr = buffer;
 	//printf("0x%x *bufferptr\n",bufferptr);
 	//printf("fname = %s  \n",fname);

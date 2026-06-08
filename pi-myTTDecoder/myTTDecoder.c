@@ -95,8 +95,8 @@ printf("CR = %d flg = %d bp = %d imgsz  = %d \n",CR, flg, bp, imgsz);
 */
 da_x0 = 0;
 da_y0 = 0;
-da_x1 = 256;
-da_y1= 256;
+da_x1 = 2048;
+da_y1= 2048;
 
 printf("da_x0 = %d da_y0 = %d da_x1 = %d da_y1 = %d\n",da_x0, da_y0, da_x1, da_y1);
 
