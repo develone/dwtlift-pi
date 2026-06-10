@@ -1,0 +1,21 @@
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff dwt.c ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/dwt.c
+[1]+  Done                    gitk
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff dwt.h ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/dwt.h
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff j2k.c ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/j2k.c
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff j2k.h ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/j2k.h
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff jp2.h ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/jp2.h
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff jp2.c ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/jp2.c
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff mct.c ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/mct.c
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff mct.h ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/mct.h
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff mqc.h ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/mqc.h
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff mqc.c ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/mqc.c
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff openjpeg.c ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/openjpeg.c
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff openjpeg.h ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/openjpeg.h
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff pi.c ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/pi.c
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff t1.c ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/t1.c
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff t1.h ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/t1.h
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff t2.h ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/t2.h
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff t2.c ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/t2.c
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff tcd.c ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/tcd.c
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ diff tcd.h ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/tcd.h
+
