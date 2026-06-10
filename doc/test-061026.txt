@@ -1,0 +1,33 @@
+06/10/26
+
+
+devel@pi5-80:git clone https://github.com/develone/dwtlift-pi.git
+
+cd dwtlift-pi/pi-myTTDecoder/src/ or cd dwtlift-pi/pi-myTTEncoder/src/
+
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ make clean
+
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ make all
+
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ make openjp2
+ar rcs libopenjp2.a bio.o cio.o dwt.o event.o function_list.o image.o invert.o  j2k.o jp2.o mct.o mqc.o opj_clock.o opj_malloc.o openjpeg.o pi.o t1.o rd-wr-ops.o t2.o tcd.o  tgt.o thread.o  openjpeg.o sparse_array.o dwtlift.o
+ar t libopenjp2.a > libopenjp2_obj.txt
+objdump -d libopenjp2.a > libopenjp2.a.dis
+
+need to copy libopenjp2.a to both dwtlift-pi/pi-myTTDecoder/ and dwtlift-pi/pi-myTTEncoder/
+
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ cp libopenjp2.a ../  ../../pi-myTTEncoder/
+
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder $ gcc -Wall -Werror -g myTTDecoder.c -L. -lopenjp2 -lm -o myTTDecoder
+
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder $ ./myTTDecoder 
+
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder $ cd ../pi-myTTEncoder/
+
+devel@pi5-80:~/dwtlift-pi/pi-myTTEncoder $ gcc -g myTTEncoder.c -L. -lopenjp2 -lm -o myTTEncoder
+
+devel@pi5-70:~/dwtlift-pi/pi-myTTEncoder $ ./myTTEncoder lena_rgb_128.bmp
+
+devel@pi5-70:~/dwtlift-pi/pi-myTTEncoder $ cp test.j2k ../pi-myTTDecoder/
+
+devel@pi5-70:~/dwtlift-pi/pi-myTTDecoder $ ./myTTDecoder 128 128 test.j2k
