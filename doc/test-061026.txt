@@ -18,7 +18,7 @@ need to copy libopenjp2.a to both dwtlift-pi/pi-myTTDecoder/ and dwtlift-pi/pi-m
 
 devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder/src $ cp libopenjp2.a ../  ../../pi-myTTEncoder/
 
-devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder $ gcc -Wall -Werror -g myTTDecoder.c -L. -lopenjp2 -lm -o myTTDecoder
+devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder $ gcc -Wall -g myTTDecoder.c -L. -lopenjp2 -lm -o myTTDecoder
 
 devel@pi5-80:~/dwtlift-pi/pi-myTTDecoder $ ./myTTDecoder 
 
