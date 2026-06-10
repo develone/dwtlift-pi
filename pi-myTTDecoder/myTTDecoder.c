@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 /*
 
@@ -56,8 +56,8 @@ input lena_rgb_64.bmp output test.j2k
 
 int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bp;
 int da_x0, da_y0, da_x1, da_y1, ENCODE;
-//char *ff;
-char ff[]="test.j2k";
+char *ff;
+
 long imgsz,him,wim, *bufferptr;
 int COMPRESSION_RATIO;
 void decom_test(int da_x0, int da_y0, int da_x1, int da_y1, char *ff_in);
@@ -97,13 +97,23 @@ da_x0 = 0;
 da_y0 = 0;
 da_x1 = 256;
 da_y1= 256;
-
+char ff[20];
+  if(argc > 0) {
+    da_x1 = atoi(argv[1]);
+    da_y1 = atoi(argv[2]);
+    printf("da_x1 %d da_y1 %d \n",da_x1,da_y1);
+    
+    printf("fname %s \n",argv[3]);
+    printf("address of argv[3] 0x%x \n", &argv[3]);
+    strncpy(ff, argv[3], sizeof(ff) - 1);
+    //return 0;
+  }  
 printf("da_x0 = %d da_y0 = %d da_x1 = %d da_y1 = %d\n",da_x0, da_y0, da_x1, da_y1);
 
 printf("*ff = 0x%x ff_in= %s\n",*ff,ff);
 
 printf("calling decom_test\n");
-//decom_test(int da_x0, int da_y0, int da_x1, int da_y1, char *ff);
+//decom_test(int da_x0, int da_y0, int da_x1, int da_y1, char *argv[3]);
 decom_test(da_x0,da_y0,da_x1,da_y1,ff);
 return 0;
 }
