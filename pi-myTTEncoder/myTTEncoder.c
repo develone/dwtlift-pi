@@ -123,7 +123,8 @@ typedef struct {
 	char  *bufferptr;
 	//printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr,*bufferptr);
         int n,loop;
-	char fname[] = "lena_rgb_2048.bmp";
+	//char fname[] = "lena_rgb_2048.bmp";
+ 
 	//*bufferptr = buffer;
 	//printf("0x%x *bufferptr\n",bufferptr);
 	//printf("fname = %s  \n",fname);
@@ -136,12 +137,12 @@ typedef struct {
         FILE *in;
         
         //open the input file
-        in = fopen(fname, "rb");
+        in = fopen(argv[1], "rb");
         if(in == NULL){
            //cleanup
            printf("Unable to open file for reading!");
         }
-        else printf("opening fname = %s  in 0x%x \n", fname, in);
+        else printf("opening fname = %s  in 0x%x \n", argv[1], in);
         
         //malloc for INFOHEADER
          
