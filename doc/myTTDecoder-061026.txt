@@ -1,0 +1,27 @@
+devel@pi4-50:~/dwtlift-pi/pi-myTTDecoder $ ./myTTDecoder 256 256  test.j2k
+da_x1 256 da_y1 256 
+fname test.j2k 
+address of argv[3] 0xe1d99ce0 
+da_x0 = 0 da_y0 = 0 da_x1 = 256 da_y1 = 256
+*ff = 0x74 ff_in= test.j2k
+calling decom_test
+In decom_test called by C myTTDecoder.c test.j2k 0 0 256 256 test.j2k
+In decompress
+0 0 256 256 test.j2k l_data_size 196608 0xafa1f010 
+Start decompression: -1781470804 seconds -1781144002 useconds -326802 starting openjpeg
+l_stream 0x8d0d1890
+In infile_format test.j2k reader 0x8d0d2920
+test.j2k l_nb_read 12 0x8d0d2920 0xff 0x4f 0xff 0x51 0x0 0x2f 0x0 0x0 0x0 0x0 0x1 0x0 
+[INFO] Start to read j2k main header (0).
+[INFO] Main header has been correctly decoded.
+[INFO] Setting decoding area to 0,0,256,256
+[INFO] Header of tile 1 / 1 has been read.
+Decompression time: 105201 seconds 0 useconds 105201 
+start writing: -98 seconds 0 useconds -98 starting openjpeg
+file name red data ptr 0xafa1f010 size 65536 
+file name green data ptr 0xafa3f010 size 65536 
+file name blue data ptr 0xafa2f010 size 65536 
+WR imagesize = 0x30000 
+Wr bpp = 24 
+Wr xresolution = 2835 yresolution 2835 
+File writes: 29615 seconds 0 useconds 29615 starting openjpeg
