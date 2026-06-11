@@ -43,8 +43,7 @@ char *bufferptr;
 //setting intial values in struct CompressImage
 struct CompressImage s1 = {6,1,60,0,25,1,24,196608,256,256,0};
 int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp;
-//int da_x0, da_y0, da_x1, da_y1;
-//char *ff;
+
 char ff[]="test.j2k";
 long imgsz,him,wim;
 int TCP_DISTORATIO=60; 
@@ -86,14 +85,9 @@ typedef struct {
 } bitmap_header;
 #pragma pack(pop)
 
-	char  *bufferptr;
+	//char  *bufferptr;
 	//printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr,*bufferptr);
         int n,loop;
-	//char fname[] = "lena_rgb_2048.bmp";
- 
-	//*bufferptr = buffer;
-	//printf("0x%x *bufferptr\n",bufferptr);
-	//printf("fname = %s  \n",fname);
 
  
         
@@ -138,21 +132,21 @@ typedef struct {
         printf("s1.imgsz %d \n",s1.imgsz);
 
         printf("Allocating memory for data\n");
-        bufferptr = (char*)malloc(s1.imgsz);
-        s1.bufferptr = bufferptr;
+        s1.bufferptr = (char*)malloc(s1.imgsz);
+        //s1.bufferptr = bufferptr;
 	printf("s1.bufferptr 0x%x    \n",s1.bufferptr);
 
     	fseek(in,sizeof(char)*hp->fileheader.dataoffset,SEEK_SET);
-    	n=fread(bufferptr,sizeof(char),hp->bitmapsize, in);
+    	n=fread(s1.bufferptr,sizeof(char),hp->bitmapsize, in);
     	printf("number of data points %d \n",n);
 	for(loop=0;loop<8;loop++) {
-    		printf("loop %d data %x data %d \n",loop,*bufferptr, *bufferptr);
-                printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr, *bufferptr);
-		bufferptr++;
+    		printf("loop %d data %x data %d \n",loop,*s1.bufferptr, *s1.bufferptr);
+                printf("s1.bufferptr 0x%x *s1.bufferptr 0x%x \n",s1.bufferptr, *s1.bufferptr);
+		s1.bufferptr++;
     	}
-    	//printf("before loop data %s \n",data);
-        bufferptr = bufferptr - loop;
-        printf("bufferptr 0x%x *bufferptr 0x%x \n",bufferptr, *bufferptr);
+    	 
+        s1.bufferptr = s1.bufferptr - loop;
+        printf("s1,bufferptr 0x%x *s1.bufferptr 0x%x \n",s1.bufferptr, *s1.bufferptr);
         
         printf("s1 0x%x \n",&s1);
         printf("s1.dec %d \n",s1.dec);
@@ -173,7 +167,7 @@ typedef struct {
 	printf("back from lift_config\n");
         free(in);
         free(hp);
-        free(bufferptr);
+        free(s1.bufferptr);
 
 
  
