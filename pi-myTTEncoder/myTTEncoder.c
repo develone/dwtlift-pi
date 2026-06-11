@@ -20,9 +20,9 @@ if dwtlift-pi/pi-myTTDecoder/src/ cp libopenjp2.a ../ and cp libopenjp2.a ../../
 
 if dwtlift-pi/pi-myTTEncoder/src/ cp libopenjp2.a ../ and cp libopenjp2.a ../../pi-myTTDecoder/
 
-devel@pi4-50:~/dwtlift-pi/pi-myTTDecoder $ gcc -Wall -g myTTEncoder.c -L. -lopenjp2 -lm -o myTTEncoder 
+devel@pi4-50:~/dwtlift-pi/pi-myTTDecoder $ gcc -Wall -g myTTDecoder.c -L. -lopenjp2 -lm -o myTTDecoder 
 
-devel@pi4-50:~/dwtlift-pi/pi-myTTEncoder $ gcc -g myTTEncoder.c -L. -ldwtlift -lm -o myTTEncoder
+devel@pi4-50:~/dwtlift-pi/pi-myTTEncoder $ gcc -g myTTEncoder.c -L. -lopenjp2 -lm -o myTTEncoder
 
 */
 
