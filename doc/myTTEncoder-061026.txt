@@ -1,0 +1,64 @@
+06/10/26
+devel@pi4-50:~/dwtlift-pi/pi-myTTEncoder $ ./myTTEncoder lena_rgb_64.bmp 
+opening fname = lena_rgb_64.bmp  in 0x807132a0 
+hp 0x80713890 *hp 0xd04a6e60 
+number of header points 1 
+n 1 
+s1.wim 64 s1.him 64 
+s1.bpp 24 
+s1.imgsz 12288 
+Allocating memory for data
+s1.bufferptr 0x807148c0    
+number of data points 12288 
+loop 0 data 3d data 61 
+s1.bufferptr 0x807148c0 *s1.bufferptr 0x3d 
+loop 1 data 1b data 27 
+s1.bufferptr 0x807148c1 *s1.bufferptr 0x1b 
+loop 2 data 5d data 93 
+s1.bufferptr 0x807148c2 *s1.bufferptr 0x5d 
+loop 3 data 59 data 89 
+s1.bufferptr 0x807148c3 *s1.bufferptr 0x59 
+loop 4 data 42 data 66 
+s1.bufferptr 0x807148c4 *s1.bufferptr 0x42 
+loop 5 data 77 data 119 
+s1.bufferptr 0x807148c5 *s1.bufferptr 0x77 
+loop 6 data a8 data 168 
+s1.bufferptr 0x807148c6 *s1.bufferptr 0xa8 
+loop 7 data b4 data 180 
+s1.bufferptr 0x807148c7 *s1.bufferptr 0xb4 
+s1,bufferptr 0x807148c0 *s1.bufferptr 0x3d 
+s1 0x57ef0168 
+s1.dec 6 
+s1.enc 1 
+s1.TCP_DISTORATIO 60 
+s1.CR 25 
+s1.flg 1 
+s1.bpp 24 
+s1.imgsz 12288 
+s1.him 64 
+s1.wim 64 
+s1.*bufferptr  0x807148c0 
+calling lift_config
+In lift_config 
+struct pointer passed s 0x57ef0168 
+dec 6 enc 1 TCP_DISTORATIO 60 
+bpp 24 flg 1 
+him 64 wim 64 
+CR 25 imgsz 12288
+If lena_rgb_256.bmp the value displayed next should 56 
+data bufferptr 0x807148c0 first byte 61 
+Hello Ultibo from C!! Called by Pascal size 12288 pointer passed  807148c0 starting compression: 0 seconds 0 useconds 0 
+in lift_config dec 6 enc 1 distoratio 60 bpp 24 CR 25 flg 1 him wim 6464
+decomp 6 encode 1 
+In lift_config first byte 0x3d
+bpp 24
+width 64 height 64 
+l_nb_tiles 1 l_data_size 12288 
+0x3d 0x1b 0x5d
+In test_tile_encoder creating J2k
+Compression time: 1616 seconds 0 useconds 1616 starting openjpeg
+[INFO] tile number 1 / 1
+Compression time: 44519 seconds 0 useconds 44519 
+back from lift_config
+free(): invalid next size (fast)
+Aborted
