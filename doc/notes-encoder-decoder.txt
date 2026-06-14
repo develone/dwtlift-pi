@@ -1,0 +1,12 @@
+06/13/26
+cd encode_decode/src/
+make clean
+make all
+make openjp2 
+cd ..
+make clean
+make all
+make Encoder
+make Decoder 
+./Encoder lena_rgb_2048.bmp 
+./Decoder 2048 2048 test.j2k
