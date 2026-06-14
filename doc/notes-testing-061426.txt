@@ -1,0 +1,1869 @@
+devel@pi5-70:~ $ git clone https://github.com/develone/dwtlift-pi.git
+Cloning into 'dwtlift-pi'...
+remote: Enumerating objects: 423, done.
+remote: Counting objects: 100% (106/106), done.
+remote: Compressing objects: 100% (89/89), done.
+remote: Total 423 (delta 30), reused 88 (delta 17), pack-reused 317 (from 1)
+Receiving objects: 100% (423/423), 40.91 MiB | 2.55 MiB/s, done.
+Resolving deltas: 100% (176/176), done.
+devel@pi5-70:~ $ cd dwtlift-pi
+devel@pi5-70:~/dwtlift-pi $ ls
+doc  encode_decode
+devel@pi5-70:~/dwtlift-pi $ cd encode_decode/src/
+devel@pi5-70:~/dwtlift-pi/encode_decode/src $ make clean
+rm -f *.o libopenjp2.a libopenjp2_obj.txt libopenjp2.a.dis
+devel@pi5-70:~/dwtlift-pi/encode_decode/src $ make all
+gcc -c -g -I. -Wall   -c -o bio.o bio.c
+gcc -c -g -I. -Wall   -c -o cio.o cio.c
+gcc -c -g -I. -Wall   -c -o dwt.o dwt.c
+gcc -c -g -I. -Wall   -c -o event.o event.c
+gcc -c -g -I. -Wall   -c -o function_list.o function_list.c
+gcc -c -g -I. -Wall   -c -o image.o image.c
+gcc -c -g -I. -Wall   -c -o invert.o invert.c
+gcc -c -g -I. -Wall   -c -o j2k.o j2k.c
+gcc -c -g -I. -Wall   -c -o jp2.o jp2.c
+gcc -c -g -I. -Wall   -c -o mct.o mct.c
+gcc -c -g -I. -Wall   -c -o mqc.o mqc.c
+gcc -c -g -I. -Wall   -c -o opj_clock.o opj_clock.c
+gcc -c -g -I. -Wall   -c -o opj_malloc.o opj_malloc.c
+gcc -c -g -I. -Wall   -c -o openjpeg.o openjpeg.c
+gcc -c -g -I. -Wall   -c -o pi.o pi.c
+gcc -c -g -I. -Wall   -c -o t1.o t1.c
+In file included from mqc.h:99,
+                 from opj_includes.h:237,
+                 from t1.c:41:
+t1.c: In function ‘opj_t1_dec_sigpass_mqc_64x64_novsc’:
+t1.c:616:32: warning: initialization of ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  616 |         DOWNLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |                                ^~~
+mqc_inl.h:160:51: note: in definition of macro ‘DOWNLOAD_MQC_VARIABLES’
+  160 |         register const opj_mqc_state_t **curctx = mqc->curctx; \
+      |                                                   ^~~
+t1.c:656:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  656 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:625:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  625 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:656:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  656 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:625:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  625 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:656:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  656 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:628:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  628 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:656:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  656 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:628:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  628 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:656:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  656 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:631:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  631 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:656:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  656 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:631:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  631 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:656:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  656 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:634:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  634 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:656:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  656 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:634:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  634 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:656:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  656 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mqc_inl.h:166:21: warning: assignment to ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} from incompatible pointer type ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  166 |         mqc->curctx = curctx; \
+      |                     ^
+t1.c:641:9: note: in expansion of macro ‘UPLOAD_MQC_VARIABLES’
+  641 |         UPLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |         ^~~~~~~~~~~~~~~~~~~~
+t1.c:656:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  656 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c: In function ‘opj_t1_dec_sigpass_mqc_64x64_vsc’:
+t1.c:616:32: warning: initialization of ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  616 |         DOWNLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |                                ^~~
+mqc_inl.h:160:51: note: in definition of macro ‘DOWNLOAD_MQC_VARIABLES’
+  160 |         register const opj_mqc_state_t **curctx = mqc->curctx; \
+      |                                                   ^~~
+t1.c:663:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  663 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:625:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  625 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:663:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  663 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:625:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  625 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:663:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  663 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:628:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  628 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:663:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  663 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:628:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  628 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:663:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  663 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:631:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  631 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:663:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  663 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:631:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  631 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:663:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  663 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:634:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  634 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:663:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  663 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:634:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  634 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:663:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  663 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mqc_inl.h:166:21: warning: assignment to ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} from incompatible pointer type ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  166 |         mqc->curctx = curctx; \
+      |                     ^
+t1.c:641:9: note: in expansion of macro ‘UPLOAD_MQC_VARIABLES’
+  641 |         UPLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |         ^~~~~~~~~~~~~~~~~~~~
+t1.c:663:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  663 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c: In function ‘opj_t1_dec_sigpass_mqc_generic_novsc’:
+t1.c:616:32: warning: initialization of ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  616 |         DOWNLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |                                ^~~
+mqc_inl.h:160:51: note: in definition of macro ‘DOWNLOAD_MQC_VARIABLES’
+  160 |         register const opj_mqc_state_t **curctx = mqc->curctx; \
+      |                                                   ^~~
+t1.c:670:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  670 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:625:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  625 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:670:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  670 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:625:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  625 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:670:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  670 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:628:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  628 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:670:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  670 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:628:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  628 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:670:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  670 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:631:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  631 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:670:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  670 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:631:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  631 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:670:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  670 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:634:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  634 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:670:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  670 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:634:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  634 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:670:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  670 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mqc_inl.h:166:21: warning: assignment to ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} from incompatible pointer type ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  166 |         mqc->curctx = curctx; \
+      |                     ^
+t1.c:641:9: note: in expansion of macro ‘UPLOAD_MQC_VARIABLES’
+  641 |         UPLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |         ^~~~~~~~~~~~~~~~~~~~
+t1.c:670:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  670 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c: In function ‘opj_t1_dec_sigpass_mqc_generic_vsc’:
+t1.c:616:32: warning: initialization of ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  616 |         DOWNLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |                                ^~~
+mqc_inl.h:160:51: note: in definition of macro ‘DOWNLOAD_MQC_VARIABLES’
+  160 |         register const opj_mqc_state_t **curctx = mqc->curctx; \
+      |                                                   ^~~
+t1.c:678:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  678 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:625:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  625 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:678:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  678 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:625:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  625 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:678:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  678 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:628:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  628 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:678:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  678 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:628:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  628 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:678:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  678 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:631:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  631 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:678:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  678 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:631:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  631 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:678:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  678 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:407:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  407 |         opj_t1_setcurctx(curctx, ctxt1); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:634:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  634 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:678:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  678 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:416:13: note: in expansion of macro ‘opj_t1_setcurctx’
+  416 |             opj_t1_setcurctx(curctx, ctxt2); \
+      |             ^~~~~~~~~~~~~~~~
+t1.c:634:29: note: in expansion of macro ‘opj_t1_dec_sigpass_step_mqc_macro’
+  634 |                             opj_t1_dec_sigpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:678:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  678 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mqc_inl.h:166:21: warning: assignment to ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} from incompatible pointer type ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  166 |         mqc->curctx = curctx; \
+      |                     ^
+t1.c:641:9: note: in expansion of macro ‘UPLOAD_MQC_VARIABLES’
+  641 |         UPLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |         ^~~~~~~~~~~~~~~~~~~~
+t1.c:678:5: note: in expansion of macro ‘opj_t1_dec_sigpass_mqc_internal’
+  678 |     opj_t1_dec_sigpass_mqc_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c: In function ‘opj_t1_dec_refpass_mqc_64x64’:
+t1.c:958:32: warning: initialization of ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  958 |         DOWNLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |                                ^~~
+mqc_inl.h:160:51: note: in definition of macro ‘DOWNLOAD_MQC_VARIABLES’
+  160 |         register const opj_mqc_state_t **curctx = mqc->curctx; \
+      |                                                   ^~~
+t1.c:996:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+  996 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:765:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  765 |         opj_t1_setcurctx(curctx, ctxt); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:966:29: note: in expansion of macro ‘opj_t1_dec_refpass_step_mqc_macro’
+  966 |                             opj_t1_dec_refpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:996:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+  996 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:765:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  765 |         opj_t1_setcurctx(curctx, ctxt); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:969:29: note: in expansion of macro ‘opj_t1_dec_refpass_step_mqc_macro’
+  969 |                             opj_t1_dec_refpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:996:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+  996 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:765:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  765 |         opj_t1_setcurctx(curctx, ctxt); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:972:29: note: in expansion of macro ‘opj_t1_dec_refpass_step_mqc_macro’
+  972 |                             opj_t1_dec_refpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:996:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+  996 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:765:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  765 |         opj_t1_setcurctx(curctx, ctxt); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:975:29: note: in expansion of macro ‘opj_t1_dec_refpass_step_mqc_macro’
+  975 |                             opj_t1_dec_refpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:996:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+  996 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mqc_inl.h:166:21: warning: assignment to ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} from incompatible pointer type ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  166 |         mqc->curctx = curctx; \
+      |                     ^
+t1.c:982:9: note: in expansion of macro ‘UPLOAD_MQC_VARIABLES’
+  982 |         UPLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |         ^~~~~~~~~~~~~~~~~~~~
+t1.c:996:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+  996 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c: In function ‘opj_t1_dec_refpass_mqc_generic’:
+t1.c:958:32: warning: initialization of ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  958 |         DOWNLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |                                ^~~
+mqc_inl.h:160:51: note: in definition of macro ‘DOWNLOAD_MQC_VARIABLES’
+  160 |         register const opj_mqc_state_t **curctx = mqc->curctx; \
+      |                                                   ^~~
+t1.c:1003:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+ 1003 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, t1->w, t1->h, t1->w + 2U);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:765:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  765 |         opj_t1_setcurctx(curctx, ctxt); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:966:29: note: in expansion of macro ‘opj_t1_dec_refpass_step_mqc_macro’
+  966 |                             opj_t1_dec_refpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1003:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+ 1003 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, t1->w, t1->h, t1->w + 2U);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:765:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  765 |         opj_t1_setcurctx(curctx, ctxt); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:969:29: note: in expansion of macro ‘opj_t1_dec_refpass_step_mqc_macro’
+  969 |                             opj_t1_dec_refpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1003:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+ 1003 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, t1->w, t1->h, t1->w + 2U);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:765:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  765 |         opj_t1_setcurctx(curctx, ctxt); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:972:29: note: in expansion of macro ‘opj_t1_dec_refpass_step_mqc_macro’
+  972 |                             opj_t1_dec_refpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1003:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+ 1003 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, t1->w, t1->h, t1->w + 2U);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:765:9: note: in expansion of macro ‘opj_t1_setcurctx’
+  765 |         opj_t1_setcurctx(curctx, ctxt); \
+      |         ^~~~~~~~~~~~~~~~
+t1.c:975:29: note: in expansion of macro ‘opj_t1_dec_refpass_step_mqc_macro’
+  975 |                             opj_t1_dec_refpass_step_mqc_macro( \
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1003:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+ 1003 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, t1->w, t1->h, t1->w + 2U);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mqc_inl.h:166:21: warning: assignment to ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} from incompatible pointer type ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  166 |         mqc->curctx = curctx; \
+      |                     ^
+t1.c:982:9: note: in expansion of macro ‘UPLOAD_MQC_VARIABLES’
+  982 |         UPLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |         ^~~~~~~~~~~~~~~~~~~~
+t1.c:1003:5: note: in expansion of macro ‘opj_t1_dec_refpass_mqc_internal’
+ 1003 |     opj_t1_dec_refpass_mqc_internal(t1, bpno, t1->w, t1->h, t1->w + 2U);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c: In function ‘opj_t1_dec_clnpass_64x64_novsc’:
+t1.c:1239:28: warning: initialization of ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+ 1239 |     DOWNLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |                            ^~~
+mqc_inl.h:160:51: note: in definition of macro ‘DOWNLOAD_MQC_VARIABLES’
+  160 |         register const opj_mqc_state_t **curctx = mqc->curctx; \
+      |                                                   ^~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1249:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1249 |                 opj_t1_setcurctx(curctx, T1_CTXNO_AGG); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1254:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1254 |                 opj_t1_setcurctx(curctx, T1_CTXNO_UNI); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1260:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1260 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, OPJ_TRUE,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1260:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1260 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, OPJ_TRUE,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1267:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1267 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1267:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1267 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1274:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1274 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1274:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1274 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1281:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1281 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1281:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1281 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1288:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1288 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1288:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1288 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1292:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1292 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1292:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1292 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1296:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1296 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1296:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1296 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1300:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1300 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1300:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1300 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+mqc_inl.h:166:21: warning: assignment to ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} from incompatible pointer type ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  166 |         mqc->curctx = curctx; \
+      |                     ^
+t1.c:1308:5: note: in expansion of macro ‘UPLOAD_MQC_VARIABLES’
+ 1308 |     UPLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |     ^~~~~~~~~~~~~~~~~~~~
+t1.c:1344:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1344 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c: In function ‘opj_t1_dec_clnpass_64x64_vsc’:
+t1.c:1239:28: warning: initialization of ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+ 1239 |     DOWNLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |                            ^~~
+mqc_inl.h:160:51: note: in definition of macro ‘DOWNLOAD_MQC_VARIABLES’
+  160 |         register const opj_mqc_state_t **curctx = mqc->curctx; \
+      |                                                   ^~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1249:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1249 |                 opj_t1_setcurctx(curctx, T1_CTXNO_AGG); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1254:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1254 |                 opj_t1_setcurctx(curctx, T1_CTXNO_UNI); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1260:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1260 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, OPJ_TRUE,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1260:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1260 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, OPJ_TRUE,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1267:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1267 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1267:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1267 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1274:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1274 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1274:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1274 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1281:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1281 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1281:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1281 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1288:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1288 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1288:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1288 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1292:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1292 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1292:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1292 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1296:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1296 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1296:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1296 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1300:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1300 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1300:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1300 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+mqc_inl.h:166:21: warning: assignment to ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} from incompatible pointer type ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  166 |         mqc->curctx = curctx; \
+      |                     ^
+t1.c:1308:5: note: in expansion of macro ‘UPLOAD_MQC_VARIABLES’
+ 1308 |     UPLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |     ^~~~~~~~~~~~~~~~~~~~
+t1.c:1351:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1351 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, 64, 64, 66);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c: In function ‘opj_t1_dec_clnpass_generic_novsc’:
+t1.c:1239:28: warning: initialization of ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+ 1239 |     DOWNLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |                            ^~~
+mqc_inl.h:160:51: note: in definition of macro ‘DOWNLOAD_MQC_VARIABLES’
+  160 |         register const opj_mqc_state_t **curctx = mqc->curctx; \
+      |                                                   ^~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1249:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1249 |                 opj_t1_setcurctx(curctx, T1_CTXNO_AGG); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1254:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1254 |                 opj_t1_setcurctx(curctx, T1_CTXNO_UNI); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1260:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1260 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, OPJ_TRUE,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1260:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1260 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, OPJ_TRUE,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1267:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1267 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1267:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1267 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1274:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1274 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1274:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1274 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1281:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1281 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1281:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1281 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1288:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1288 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1288:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1288 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1292:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1292 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1292:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1292 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1296:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1296 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1296:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1296 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1300:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1300 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1300:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1300 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+mqc_inl.h:166:21: warning: assignment to ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} from incompatible pointer type ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  166 |         mqc->curctx = curctx; \
+      |                     ^
+t1.c:1308:5: note: in expansion of macro ‘UPLOAD_MQC_VARIABLES’
+ 1308 |     UPLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |     ^~~~~~~~~~~~~~~~~~~~
+t1.c:1358:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1358 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_FALSE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c: In function ‘opj_t1_dec_clnpass_generic_vsc’:
+t1.c:1239:28: warning: initialization of ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+ 1239 |     DOWNLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |                            ^~~
+mqc_inl.h:160:51: note: in definition of macro ‘DOWNLOAD_MQC_VARIABLES’
+  160 |         register const opj_mqc_state_t **curctx = mqc->curctx; \
+      |                                                   ^~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1249:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1249 |                 opj_t1_setcurctx(curctx, T1_CTXNO_AGG); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1254:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1254 |                 opj_t1_setcurctx(curctx, T1_CTXNO_UNI); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1260:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1260 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, OPJ_TRUE,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1260:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1260 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, OPJ_TRUE,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1267:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1267 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1267:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1267 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1274:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1274 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1274:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1274 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1281:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1281 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1281:25: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1281 |                         opj_t1_dec_clnpass_step_macro(OPJ_FALSE, partial,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1288:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1288 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1288:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1288 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1292:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1292 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1292:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1292 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1296:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1296 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1296:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1296 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1110:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1110 |                 opj_t1_setcurctx(curctx, ctxt1); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1300:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1300 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:49:49: warning: assignment to ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} from incompatible pointer type ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+   49 | #define opj_t1_setcurctx(curctx, ctxno)  curctx = &(mqc)->ctxs[(OPJ_UINT32)(ctxno)]
+      |                                                 ^
+t1.c:1119:17: note: in expansion of macro ‘opj_t1_setcurctx’
+ 1119 |                 opj_t1_setcurctx(curctx, opj_t1_getctxno_sc(lu)); \
+      |                 ^~~~~~~~~~~~~~~~
+t1.c:1300:17: note: in expansion of macro ‘opj_t1_dec_clnpass_step_macro’
+ 1300 |                 opj_t1_dec_clnpass_step_macro(OPJ_TRUE, OPJ_FALSE, \
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+mqc_inl.h:166:21: warning: assignment to ‘opj_mqc_state_t **’ {aka ‘struct opj_mqc_state **’} from incompatible pointer type ‘const opj_mqc_state_t **’ {aka ‘const struct opj_mqc_state **’} [-Wincompatible-pointer-types]
+  166 |         mqc->curctx = curctx; \
+      |                     ^
+t1.c:1308:5: note: in expansion of macro ‘UPLOAD_MQC_VARIABLES’
+ 1308 |     UPLOAD_MQC_VARIABLES(mqc, curctx, c, a, ct); \
+      |     ^~~~~~~~~~~~~~~~~~~~
+t1.c:1366:5: note: in expansion of macro ‘opj_t1_dec_clnpass_internal’
+ 1366 |     opj_t1_dec_clnpass_internal(t1, bpno, OPJ_TRUE, t1->w, t1->h,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -c -g -I. -Wall   -c -o rd-wr-ops.o rd-wr-ops.c
+rd-wr-ops.c: In function ‘rd_inps’:
+rd-wr-ops.c:11:20: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘FILE *’ [-Wformat=]
+   11 |         printf("0x%x\n",inptr);
+      |                   ~^    ~~~~~
+      |                    |    |
+      |                    |    FILE *
+      |                    unsigned int
+rd-wr-ops.c:15:9: warning: this ‘else’ clause does not guard... [-Wmisleading-indentation]
+   15 |         else
+      |         ^~~~
+rd-wr-ops.c:17:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘else’
+   17 |                 printf("number read %d \n",num);
+      |                 ^~~~~~
+rd-wr-ops.c:30:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   30 |         printf("size of 0x%x %x \n",CR,sizeof(CR));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:31:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   31 |         printf("size of 0x%x %x \n",enc,sizeof(enc));
+      |                              ~^         ~~~~~~~~~~~
+      |                               |         |
+      |                               |         long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:32:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   32 |         printf("size of 0x%x %x \n",x0,sizeof(x0));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:33:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   33 |         printf("size of 0x%x %x \n",y0,sizeof(y0));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:34:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   34 |         printf("size of 0x%x %x \n",x1,sizeof(x1));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:35:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   35 |         printf("size of 0x%x %x \n",y1,sizeof(y1));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c: In function ‘wr_inps’:
+rd-wr-ops.c:51:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   51 |         printf("size of 0x%x %x \n",CR,sizeof(CR));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:52:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   52 |         printf("size of 0x%x %x \n",enc,sizeof(enc));
+      |                              ~^         ~~~~~~~~~~~
+      |                               |         |
+      |                               |         long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:53:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   53 |         printf("size of 0x%x %x \n",x0,sizeof(x0));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:54:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   54 |         printf("size of 0x%x %x \n",y0,sizeof(y0));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:55:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   55 |         printf("size of 0x%x %x \n",x1,sizeof(x1));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:56:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   56 |         printf("size of 0x%x %x \n",y1,sizeof(y1));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:62:20: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘FILE *’ [-Wformat=]
+   62 |         printf("0x%x\n",outptr);
+      |                   ~^    ~~~~~~
+      |                    |    |
+      |                    |    FILE *
+      |                    unsigned int
+rd-wr-ops.c:66:9: warning: this ‘else’ clause does not guard... [-Wmisleading-indentation]
+   66 |         else
+      |         ^~~~
+rd-wr-ops.c:68:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘else’
+   68 |                 printf("number read %d \n",num);
+      |                 ^~~~~~
+rd-wr-ops.c: At top level:
+rd-wr-ops.c:87:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+   87 | void main() {
+      |      ^~~~
+gcc -c -g -I. -Wall   -c -o t2.o t2.c
+gcc -c -g -I. -Wall   -c -o tcd.o tcd.c
+gcc -c -g -I. -Wall   -c -o tgt.o tgt.c
+gcc -c -g -I. -Wall   -c -o thread.o thread.c
+gcc -c -g -I. -Wall   -c -o sparse_array.o sparse_array.c
+gcc -c -g -I. -Wall   -c -o dwtlift.o dwtlift.c
+dwtlift.c: In function ‘infile_format’:
+dwtlift.c:421:55: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘FILE *’ [-Wformat=]
+  421 |                 printf("In infile_format %s reader 0x%x\n", fname,reader);
+      |                                                      ~^           ~~~~~~
+      |                                                       |           |
+      |                                                       |           FILE *
+      |                                                       unsigned int
+dwtlift.c:427:36: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘FILE *’ [-Wformat=]
+  427 |         printf("%s l_nb_read %d 0x%x ",fname,l_nb_read,reader);
+      |                                   ~^                   ~~~~~~
+      |                                    |                   |
+      |                                    unsigned int        FILE *
+dwtlift.c: In function ‘decompress’:
+dwtlift.c:527:58: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 8 has type ‘OPJ_BYTE *’ {aka ‘unsigned char *’} [-Wformat=]
+  527 |                 printf("%d %d %d %d %s l_data_size %d 0x%x \n",da_x0,da_y0,da_x1,da_y1,input_file,l_max_data_size,l_data);
+      |                                                         ~^                                                        ~~~~~~
+      |                                                          |                                                        |
+      |                                                          unsigned int                                             OPJ_BYTE * {aka unsigned char *}
+      |                                                         %hhn
+dwtlift.c:571:29: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘void **’ [-Wformat=]
+  571 |         printf("l_stream 0x%x\n", l_stream);
+      |                            ~^     ~~~~~~~~
+      |                             |     |
+      |                             |     void **
+      |                             unsigned int
+dwtlift.c:715:30: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+  715 |                 r_decompress =  l_data;
+      |                              ^
+dwtlift.c:716:17: warning: implicit declaration of function ‘octave_write_byte’ [-Wimplicit-function-declaration]
+  716 |                 octave_write_byte(r_decompress_fn,r_decompress,da_x1*da_y1);
+      |                 ^~~~~~~~~~~~~~~~~
+dwtlift.c:717:30: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+  717 |                 g_decompress =  l_data+da_x1*da_y1+da_x1*da_y1;
+      |                              ^
+dwtlift.c:719:30: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+  719 |                 b_decompress =  l_data+da_x1*da_y1;
+      |                              ^
+dwtlift.c: In function ‘octave_write_byte’:
+dwtlift.c:815:42: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘char *’ [-Wformat=]
+  815 |         printf("file name %s data ptr 0x%x size %d \n",fn, d_ptr,sz);
+      |                                         ~^                 ~~~~~
+      |                                          |                 |
+      |                                          unsigned int      char *
+      |                                         %s
+dwtlift.c: In function ‘lift_config’:
+dwtlift.c:888:36: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘struct CompressImage *’ [-Wformat=]
+  888 | printf("struct pointer passed s 0x%x \n",s);
+      |                                   ~^     ~
+      |                                    |     |
+      |                                    |     struct CompressImage *
+      |                                    unsigned int
+dwtlift.c:909:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘char *’ [-Wformat=]
+  909 | printf("data bufferptr 0x%x first byte %d \n",bufferptr, *bufferptr);
+      |                          ~^                   ~~~~~~~~~
+      |                           |                   |
+      |                           unsigned int        char *
+      |                          %s
+dwtlift.c:914:24: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 2 has type ‘int’ [-Wformat=]
+  914 |         printf("size %ld ",imgsz);
+      |                      ~~^   ~~~~~
+      |                        |   |
+      |                        |   int
+      |                        long int
+      |                      %d
+dwtlift.c:915:34: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘char *’ [-Wformat=]
+  915 |         printf("pointer passed  %x ",bufferptr);
+      |                                 ~^   ~~~~~~~~~
+      |                                  |   |
+      |                                  |   char *
+      |                                  unsigned int
+      |                                 %s
+dwtlift.c:1079:11: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+ 1079 |         b = l_data+(imgsz/3);
+      |           ^
+dwtlift.c:1080:11: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+ 1080 |         g = l_data+(imgsz/3*2);
+      |           ^
+dwtlift.c:1081:11: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+ 1081 |         r = l_data;
+      |           ^
+dwtlift.c:1131:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1131 |         lclip = (char *)*bufferptr;
+      |                 ^
+dwtlift.c:919:13: warning: variable ‘TopDown’ set but not used [-Wunused-but-set-variable]
+  919 |         int TopDown,plot;
+      |             ^~~~~~~
+dwtlift.c:911:29: warning: unused variable ‘host’ [-Wunused-variable]
+  911 |         struct GPU_FFT_HOST host;
+      |                             ^~~~
+dwtlift.c:1011:18: warning: ‘FILTER’ is used uninitialized [-Wuninitialized]
+ 1011 |     irreversible = FILTER;
+      |     ~~~~~~~~~~~~~^~~~~~~~
+dwtlift.c:890:31: note: ‘FILTER’ was declared here
+  890 | int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz, him, wim;
+      |                               ^~~~~~
+devel@pi5-70:~/dwtlift-pi/encode_decode/src $ make openjp2 
+ar rcs libopenjp2.a bio.o cio.o dwt.o event.o function_list.o image.o invert.o  j2k.o jp2.o mct.o mqc.o opj_clock.o opj_malloc.o openjpeg.o pi.o t1.o rd-wr-ops.o t2.o tcd.o  tgt.o thread.o  openjpeg.o sparse_array.o dwtlift.o
+ar t libopenjp2.a > libopenjp2_obj.txt
+objdump -d libopenjp2.a > libopenjp2.a.dis
+cp libopenjp2.a ../
+
+devel@pi5-70:~/dwtlift-pi/encode_decode/src $ cd ../
+devel@pi5-70:~/dwtlift-pi/encode_decode $ make clean
+rm -f *.o  Encoder Decoder
+ 
+devel@pi5-70:~/dwtlift-pi/encode_decode $ make all
+gcc -c -g -I.     -c -o Encoder.o Encoder.c
+gcc -c -g -I.     -c -o Decoder.o Decoder.c
+devel@pi5-70:~/dwtlift-pi/encode_decode $ make Encoder 
+gcc Encoder.o -L. -lopenjp2 -lm -o Encoder
+devel@pi5-70:~/dwtlift-pi/encode_decode $ make Decoder 
+gcc  Decoder.o -L. -lopenjp2 -lm -o Decoder
+
+devel@pi5-70:~/dwtlift-pi/encode_decode $ ./Encoder lena_rgb_64.bmp 
+opening fname = lena_rgb_64.bmp  in 0xb86002a0 
+hp 0xb8600890 *hp 0xea578f70 
+number of header points 1 
+n 1 
+s1.wim 64 s1.him 64 
+s1.bpp 24 
+s1.imgsz 12288 
+Allocating memory for data
+s1.bufferptr 0xb86018c0    
+number of data points 12288 
+loop 0 data 3d data 61 
+s1.bufferptr 0xb86018c0 *s1.bufferptr 0x3d 
+loop 1 data 1b data 27 
+s1.bufferptr 0xb86018c1 *s1.bufferptr 0x1b 
+loop 2 data 5d data 93 
+s1.bufferptr 0xb86018c2 *s1.bufferptr 0x5d 
+loop 3 data 59 data 89 
+s1.bufferptr 0xb86018c3 *s1.bufferptr 0x59 
+loop 4 data 42 data 66 
+s1.bufferptr 0xb86018c4 *s1.bufferptr 0x42 
+loop 5 data 77 data 119 
+s1.bufferptr 0xb86018c5 *s1.bufferptr 0x77 
+loop 6 data a8 data 168 
+s1.bufferptr 0xb86018c6 *s1.bufferptr 0xa8 
+loop 7 data b4 data 180 
+s1.bufferptr 0xb86018c7 *s1.bufferptr 0xb4 
+s1,bufferptr 0xb86018c0 *s1.bufferptr 0x3d 
+s1 0x99810168 
+s1.dec 6 
+s1.enc 1 
+s1.TCP_DISTORATIO 60 
+s1.CR 25 
+s1.flg 1 
+s1.bpp 24 
+s1.imgsz 12288 
+s1.him 64 
+s1.wim 64 
+s1.*bufferptr  0xb86018c0 
+calling lift_config
+In lift_config 
+struct pointer passed s 0x99810168 
+dec 6 enc 1 TCP_DISTORATIO 60 
+bpp 24 flg 1 
+him 64 wim 64 
+CR 25 imgsz 12288
+If lena_rgb_256.bmp the value displayed next should 56 
+data bufferptr 0xb86018c0 first byte 61 
+Hello Ultibo from C!! Called by Pascal size 12288 pointer passed  b86018c0 starting compression: 0 seconds 0 useconds 0 
+in lift_config dec 6 enc 1 distoratio 60 bpp 24 CR 25 flg 1 him wim 6464
+decomp 6 encode 1 
+In lift_config first byte 0x3d
+bpp 24
+width 64 height 64 
+l_nb_tiles 1 l_data_size 12288 
+0x3d 0x1b 0x5d
+In test_tile_encoder creating J2k
+Compression time: 120 seconds 0 useconds 120 starting openjpeg
+[INFO] tile number 1 / 1
+Compression time: 9258 seconds 0 useconds 9258 
+back from lift_config
+free(): invalid next size (fast)
+Aborted
+
+devel@pi5-70:~/dwtlift-pi/encode_decode $ ./Decoder 64 64 test.j2k
+da_x1 64 da_y1 64 
+fname test.j2k 
+address of argv[3] 0xdd49d2d0 
+da_x0 = 0 da_y0 = 0 da_x1 = 64 da_y1 = 64
+*ff = 0x74 ff_in= test.j2k
+calling decom_test
+In decom_test called by C myTTDecoder.c test.j2k 0 0 64 64 test.j2k
+In decompress
+0 0 64 64 test.j2k l_data_size 12288 0xdda3c6b0 
+Start decompression: -1782108545 seconds -1781454455 useconds -654090 starting openjpeg
+l_stream 0xdda3f8a0
+In infile_format test.j2k reader 0xdda40930
+test.j2k l_nb_read 12 0xdda40930 0xff 0x4f 0xff 0x51 0x0 0x2f 0x0 0x0 0x0 0x0 0x0 0x40 
+[INFO] Start to read j2k main header (0).
+[INFO] Main header has been correctly decoded.
+[INFO] Setting decoding area to 0,0,64,64
+[INFO] Header of tile 1 / 1 has been read.
+Decompression time: 5575 seconds 0 useconds 5575 
+start writing: -15 seconds 0 useconds -15 starting openjpeg
+file name red data ptr 0xdda3c6b0 size 4096 
+file name green data ptr 0xdda3e6b0 size 4096 
+file name blue data ptr 0xdda3d6b0 size 4096 
+WR imagesize = 0x3000 
+Wr bpp = 24 
+Wr xresolution = 2835 yresolution 2835 
+File writes: 3871 seconds 0 useconds 3871 starting openjpeg
