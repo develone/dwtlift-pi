@@ -7,16 +7,16 @@ figure;
 imagesc(im1);
 colorbar
 colormap 'gray'
-title "myTTDecoder red 06/08/26"
+title "Decoder red 06/14/26"
 
 figure;
 imagesc(im2);
 colorbar;
 colormap 'gray'
-title "myTTDecoder green 06/08/26"
+title "Decoder green 06/14/26"
 
 figure;
 imagesc(im3);
 colorbar;
 colormap 'gray'
-title "myTTDecoder blue 06/08/26"
+title "Decoder blue 06/14/26"
