@@ -1008,7 +1008,11 @@ printf("data bufferptr 0x%x first byte %d \n",bufferptr, *bufferptr);
     tile_width = width;
     tile_height = height;
     comp_prec = 8;
+    FILTER = 0;
+    //FILTER 0 5/3 DWT
+    //FILTER 1 9/7 DWT    
     irreversible = FILTER;
+
     output_file = "test.j2k";
     
   if( num_comps > NUM_COMPS_MAX )

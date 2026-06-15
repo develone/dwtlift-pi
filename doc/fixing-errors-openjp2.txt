@@ -1,0 +1,33 @@
+dwtlift.c:1011:18: warning: ‘FILTER’ is used uninitialized [-Wuninitialized]
+ 1011 |     irreversible = FILTER;
+      |     ~~~~~~~~~~~~~^~~~~~~~
+dwtlift.c:890:31: note: ‘FILTER’ was declared here
+  890 | int dec, enc, TCP_DISTORATIO, FILTER, CR, flg, bpp, imgsz, him, wim;
+  
+devel@pi5-70:~/dwtlift-pi/encode_decode/src $ git diff dwtlift.c
+diff --git a/encode_decode/src/dwtlift.c b/encode_decode/src/dwtlift.c
+index 4365e8f..2ed6f3f 100644
+--- a/encode_decode/src/dwtlift.c
++++ b/encode_decode/src/dwtlift.c
+@@ -1008,7 +1008,11 @@ printf("data bufferptr 0x%x first byte %d \n",bufferptr, *bufferptr);
+     tile_width = width;
+     tile_height = height;
+     comp_prec = 8;
++    FILTER = 0;
++    //FILTER 0 5/3 DWT
++    //FILTER 1 9/7 DWT    
+     irreversible = FILTER;
++
+     output_file = "test.j2k";
+     
+   if( num_comps > NUM_COMPS_MAX )
+   
+dwtlift.c:1135:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1135 |         lclip = (char *)*bufferptr;
+      |                 ^
+dwtlift.c:919:13: warning: variable ‘TopDown’ set but not used [-Wunused-but-set-variable]
+  919 |         int TopDown,plot;
+      |             ^~~~~~~
+dwtlift.c:911:29: warning: unused variable ‘host’ [-Wunused-variable]
+  911 |         struct GPU_FFT_HOST host;
+      |                             ^~~~     
