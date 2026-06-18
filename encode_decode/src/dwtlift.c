@@ -911,7 +911,7 @@ printf("data bufferptr 0x%x first byte %d \n",bufferptr, *bufferptr);
 	struct GPU_FFT_HOST host;
 	
 	printf ("Hello Ultibo from C!! Called by Pascal ");
-	printf("size %ld ",imgsz);
+	printf("size %d ",imgsz);
 	printf("pointer passed  %x ",bufferptr);
   
 	printf("starting compression: %ld seconds %ld useconds %ld \n", mtime,seconds, useconds);
