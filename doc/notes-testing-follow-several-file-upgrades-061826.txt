@@ -1,0 +1,345 @@
+devel@pi5-70:~/dwtlift-pi/encode_decode $ git pull
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 5 (delta 4), reused 5 (delta 4), pack-reused 0 (from 0)
+Unpacking objects: 100% (5/5), 690 bytes | 690.00 KiB/s, done.
+From https://github.com/develone/dwtlift-pi
+   a1b9f33..55fb195  main       -> origin/main
+Updating a1b9f33..55fb195
+Fast-forward
+ encode_decode/src/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+devel@pi5-70:~/dwtlift-pi/encode_decode $ cd src/
+devel@pi5-70:~/dwtlift-pi/encode_decode/src $ make clean
+rm -f *.o libopenjp2.a libopenjp2_obj.txt libopenjp2.a.dis
+devel@pi5-70:~/dwtlift-pi/encode_decode/src $ make all 
+gcc -c -g -I. -Wall   -c -o bio.o bio.c
+gcc -c -g -I. -Wall   -c -o cio.o cio.c
+gcc -c -g -I. -Wall   -c -o dwt.o dwt.c
+gcc -c -g -I. -Wall   -c -o event.o event.c
+gcc -c -g -I. -Wall   -c -o function_list.o function_list.c
+gcc -c -g -I. -Wall   -c -o image.o image.c
+gcc -c -g -I. -Wall   -c -o invert.o invert.c
+gcc -c -g -I. -Wall   -c -o j2k.o j2k.c
+gcc -c -g -I. -Wall   -c -o jp2.o jp2.c
+gcc -c -g -I. -Wall   -c -o mct.o mct.c
+gcc -c -g -I. -Wall   -c -o mqc.o mqc.c
+gcc -c -g -I. -Wall   -c -o opj_clock.o opj_clock.c
+gcc -c -g -I. -Wall   -c -o opj_malloc.o opj_malloc.c
+gcc -c -g -I. -Wall   -c -o openjpeg.o openjpeg.c
+gcc -c -g -I. -Wall   -c -o pi.o pi.c
+gcc -c -g -I. -Wall   -c -o t1.o t1.c
+gcc -c -g -I. -Wall   -c -o rd-wr-ops.o rd-wr-ops.c
+rd-wr-ops.c: In function ‘rd_inps’:
+rd-wr-ops.c:11:20: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘FILE *’ [-Wformat=]
+   11 |         printf("0x%x\n",inptr);
+      |                   ~^    ~~~~~
+      |                    |    |
+      |                    |    FILE *
+      |                    unsigned int
+rd-wr-ops.c:15:9: warning: this ‘else’ clause does not guard... [-Wmisleading-indentation]
+   15 |         else
+      |         ^~~~
+rd-wr-ops.c:17:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘else’
+   17 |                 printf("number read %d \n",num);
+      |                 ^~~~~~
+rd-wr-ops.c:30:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   30 |         printf("size of 0x%x %x \n",CR,sizeof(CR));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:31:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   31 |         printf("size of 0x%x %x \n",enc,sizeof(enc));
+      |                              ~^         ~~~~~~~~~~~
+      |                               |         |
+      |                               |         long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:32:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   32 |         printf("size of 0x%x %x \n",x0,sizeof(x0));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:33:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   33 |         printf("size of 0x%x %x \n",y0,sizeof(y0));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:34:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   34 |         printf("size of 0x%x %x \n",x1,sizeof(x1));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:35:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   35 |         printf("size of 0x%x %x \n",y1,sizeof(y1));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c: In function ‘wr_inps’:
+rd-wr-ops.c:51:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   51 |         printf("size of 0x%x %x \n",CR,sizeof(CR));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:52:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   52 |         printf("size of 0x%x %x \n",enc,sizeof(enc));
+      |                              ~^         ~~~~~~~~~~~
+      |                               |         |
+      |                               |         long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:53:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   53 |         printf("size of 0x%x %x \n",x0,sizeof(x0));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:54:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   54 |         printf("size of 0x%x %x \n",y0,sizeof(y0));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:55:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   55 |         printf("size of 0x%x %x \n",x1,sizeof(x1));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:56:31: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long unsigned int’ [-Wformat=]
+   56 |         printf("size of 0x%x %x \n",y1,sizeof(y1));
+      |                              ~^        ~~~~~~~~~~
+      |                               |        |
+      |                               |        long unsigned int
+      |                               unsigned int
+      |                              %lx
+rd-wr-ops.c:62:20: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘FILE *’ [-Wformat=]
+   62 |         printf("0x%x\n",outptr);
+      |                   ~^    ~~~~~~
+      |                    |    |
+      |                    |    FILE *
+      |                    unsigned int
+rd-wr-ops.c:66:9: warning: this ‘else’ clause does not guard... [-Wmisleading-indentation]
+   66 |         else
+      |         ^~~~
+rd-wr-ops.c:68:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘else’
+   68 |                 printf("number read %d \n",num);
+      |                 ^~~~~~
+gcc -c -g -I. -Wall   -c -o t2.o t2.c
+gcc -c -g -I. -Wall   -c -o tcd.o tcd.c
+gcc -c -g -I. -Wall   -c -o tgt.o tgt.c
+gcc -c -g -I. -Wall   -c -o thread.o thread.c
+gcc -c -g -I. -Wall   -c -o dwtlift.o dwtlift.c
+dwtlift.c: In function ‘infile_format’:
+dwtlift.c:421:55: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘FILE *’ [-Wformat=]
+  421 |                 printf("In infile_format %s reader 0x%x\n", fname,reader);
+      |                                                      ~^           ~~~~~~
+      |                                                       |           |
+      |                                                       |           FILE *
+      |                                                       unsigned int
+dwtlift.c:427:36: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘FILE *’ [-Wformat=]
+  427 |         printf("%s l_nb_read %d 0x%x ",fname,l_nb_read,reader);
+      |                                   ~^                   ~~~~~~
+      |                                    |                   |
+      |                                    unsigned int        FILE *
+dwtlift.c: In function ‘decompress’:
+dwtlift.c:527:58: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 8 has type ‘OPJ_BYTE *’ {aka ‘unsigned char *’} [-Wformat=]
+  527 |                 printf("%d %d %d %d %s l_data_size %d 0x%x \n",da_x0,da_y0,da_x1,da_y1,input_file,l_max_data_size,l_data);
+      |                                                         ~^                                                        ~~~~~~
+      |                                                          |                                                        |
+      |                                                          unsigned int                                             OPJ_BYTE * {aka unsigned char *}
+      |                                                         %hhn
+dwtlift.c:571:29: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘void **’ [-Wformat=]
+  571 |         printf("l_stream 0x%x\n", l_stream);
+      |                            ~^     ~~~~~~~~
+      |                             |     |
+      |                             |     void **
+      |                             unsigned int
+dwtlift.c:715:30: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+  715 |                 r_decompress =  l_data;
+      |                              ^
+dwtlift.c:716:17: warning: implicit declaration of function ‘octave_write_byte’ [-Wimplicit-function-declaration]
+  716 |                 octave_write_byte(r_decompress_fn,r_decompress,da_x1*da_y1);
+      |                 ^~~~~~~~~~~~~~~~~
+dwtlift.c:717:30: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+  717 |                 g_decompress =  l_data+da_x1*da_y1+da_x1*da_y1;
+      |                              ^
+dwtlift.c:719:30: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+  719 |                 b_decompress =  l_data+da_x1*da_y1;
+      |                              ^
+dwtlift.c: In function ‘octave_write_byte’:
+dwtlift.c:815:42: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘char *’ [-Wformat=]
+  815 |         printf("file name %s data ptr 0x%x size %d \n",fn, d_ptr,sz);
+      |                                         ~^                 ~~~~~
+      |                                          |                 |
+      |                                          unsigned int      char *
+      |                                         %s
+dwtlift.c: In function ‘lift_config’:
+dwtlift.c:888:36: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘struct CompressImage *’ [-Wformat=]
+  888 | printf("struct pointer passed s 0x%x \n",s);
+      |                                   ~^     ~
+      |                                    |     |
+      |                                    |     struct CompressImage *
+      |                                    unsigned int
+dwtlift.c:909:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘char *’ [-Wformat=]
+  909 | printf("data bufferptr 0x%x first byte %d \n",bufferptr, *bufferptr);
+      |                          ~^                   ~~~~~~~~~
+      |                           |                   |
+      |                           unsigned int        char *
+      |                          %s
+dwtlift.c:915:34: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘char *’ [-Wformat=]
+  915 |         printf("pointer passed  %x ",bufferptr);
+      |                                 ~^   ~~~~~~~~~
+      |                                  |   |
+      |                                  |   char *
+      |                                  unsigned int
+      |                                 %s
+dwtlift.c:1083:11: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+ 1083 |         b = l_data+(imgsz/3);
+      |           ^
+dwtlift.c:1084:11: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+ 1084 |         g = l_data+(imgsz/3*2);
+      |           ^
+dwtlift.c:1085:11: warning: pointer targets in assignment from ‘OPJ_BYTE *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+ 1085 |         r = l_data;
+      |           ^
+dwtlift.c:1135:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1135 |         lclip = (char *)*bufferptr;
+      |                 ^
+dwtlift.c:919:13: warning: variable ‘TopDown’ set but not used [-Wunused-but-set-variable]
+  919 |         int TopDown,plot;
+      |             ^~~~~~~
+dwtlift.c:911:29: warning: unused variable ‘host’ [-Wunused-variable]
+  911 |         struct GPU_FFT_HOST host;
+      |                             ^~~~
+devel@pi5-70:~/dwtlift-pi/encode_decode/src $ make openjp2 
+ar rcs libopenjp2.a bio.o cio.o dwt.o event.o function_list.o image.o invert.o  j2k.o jp2.o mct.o mqc.o opj_clock.o opj_malloc.o openjpeg.o pi.o t1.o rd-wr-ops.o t2.o tcd.o  tgt.o thread.o  openjpeg.o  dwtlift.o
+ar t libopenjp2.a > libopenjp2_obj.txt
+objdump -d libopenjp2.a > libopenjp2.a.dis
+cp libopenjp2.a ../
+devel@pi5-70:~/dwtlift-pi/encode_decode/src $ cd ..
+devel@pi5-70:~/dwtlift-pi/encode_decode $ make clean
+rm -f *.o  Encoder Decoder
+devel@pi5-70:~/dwtlift-pi/encode_decode $ make all
+gcc -c -g -I.     -c -o Encoder.o Encoder.c
+gcc -c -g -I.     -c -o Decoder.o Decoder.c
+devel@pi5-70:~/dwtlift-pi/encode_decode $ make Encoder 
+gcc Encoder.o -L. -lopenjp2 -lm -o Encoder
+devel@pi5-70:~/dwtlift-pi/encode_decode $ make Decoder 
+gcc  Decoder.o -L. -lopenjp2 -lm -o Decoder
+devel@pi5-70:~/dwtlift-pi/encode_decode $ ./Encoder lena_rgb_2048.bmp 
+opening fname = lena_rgb_2048.bmp  in 0xcca102a0 
+hp 0xcca10890 *hp 0xebf8f6c0 
+number of header points 1 
+n 1 
+s1.wim 2048 s1.him 2048 
+s1.bpp 24 
+s1.imgsz 12582912 
+Allocating memory for data
+s1.bufferptr 0xfacdc010    
+number of data points 12582912 
+loop 0 data 39 data 57 
+s1.bufferptr 0xfacdc010 *s1.bufferptr 0x39 
+loop 1 data 16 data 22 
+s1.bufferptr 0xfacdc011 *s1.bufferptr 0x16 
+loop 2 data 52 data 82 
+s1.bufferptr 0xfacdc012 *s1.bufferptr 0x52 
+loop 3 data 39 data 57 
+s1.bufferptr 0xfacdc013 *s1.bufferptr 0x39 
+loop 4 data 16 data 22 
+s1.bufferptr 0xfacdc014 *s1.bufferptr 0x16 
+loop 5 data 52 data 82 
+s1.bufferptr 0xfacdc015 *s1.bufferptr 0x52 
+loop 6 data 39 data 57 
+s1.bufferptr 0xfacdc016 *s1.bufferptr 0x39 
+loop 7 data 16 data 22 
+s1.bufferptr 0xfacdc017 *s1.bufferptr 0x16 
+s1,bufferptr 0xfacdc010 *s1.bufferptr 0x39 
+s1 0xb7dc0168 
+s1.dec 6 
+s1.enc 1 
+s1.TCP_DISTORATIO 60 
+s1.CR 25 
+s1.flg 1 
+s1.bpp 24 
+s1.imgsz 12582912 
+s1.him 2048 
+s1.wim 2048 
+s1.*bufferptr  0xfacdc010 
+calling lift_config
+In lift_config 
+struct pointer passed s 0xb7dc0168 
+dec 6 enc 1 TCP_DISTORATIO 60 
+bpp 24 flg 1 
+him 2048 wim 2048 
+CR 25 imgsz 12582912
+If lena_rgb_256.bmp the value displayed next should 56 
+data bufferptr 0xfacdc010 first byte 57 
+Hello Ultibo from C!! Called by Pascal size 12582912 pointer passed  facdc010 starting compression: 0 seconds 0 useconds 0 
+in lift_config dec 6 enc 1 distoratio 60 bpp 24 CR 25 flg 1 him wim 20482048
+decomp 6 encode 1 
+In lift_config first byte 0x39
+bpp 24
+width 2048 height 2048 
+l_nb_tiles 1 l_data_size 12582912 
+0x39 0x16 0x52
+In test_tile_encoder creating J2k
+Compression time: 384 seconds 0 useconds 384 starting openjpeg
+[INFO] tile number 1 / 1
+Compression time: 474934 seconds 3 useconds 474931 
+back from lift_config
+free(): invalid next size (fast)
+Aborted
+devel@pi5-70:~/dwtlift-pi/encode_decode $ ./Decoder 2048 2048 test.j2k 
+da_x1 2048 da_y1 2048 
+fname test.j2k 
+address of argv[3] 0xd91ed330 
+da_x0 = 0 da_y0 = 0 da_x1 = 2048 da_y1 = 2048
+*ff = 0x74 ff_in= test.j2k
+calling decom_test
+In decom_test called by C myTTDecoder.c test.j2k 0 0 2048 2048 test.j2k
+In decompress
+0 0 2048 2048 test.j2k l_data_size 12582912 0x5e70c010 
+Start decompression: -1782049741 seconds -1781822744 useconds -226997 starting openjpeg
+l_stream 0xf5ec8890
+In infile_format test.j2k reader 0xf5ec9920
+test.j2k l_nb_read 12 0xf5ec9920 0xff 0x4f 0xff 0x51 0x0 0x2f 0x0 0x0 0x0 0x0 0x8 0x0 
+[INFO] Start to read j2k main header (0).
+[INFO] Main header has been correctly decoded.
+[INFO] Setting decoding area to 0,0,2048,2048
+[INFO] Header of tile 1 / 1 has been read.
+Decompression time: 491010 seconds 2 useconds 491008 
+start writing: -28 seconds 0 useconds -28 starting openjpeg
+file name red data ptr 0x5e70c010 size 4194304 
+file name green data ptr 0x5ef0c010 size 4194304 
+file name blue data ptr 0x5eb0c010 size 4194304 
+WR imagesize = 0xc00000 
+Wr bpp = 24 
+Wr xresolution = 2835 yresolution 2835 
+File writes: -558190 seconds 1 useconds -558191 starting openjpeg
+
+devel@pi5-70:~/dwtlift-pi $ ./compare-openjpeg-ultibo-br.sh 
+diff: /home/devel/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/dwtlift.c: No such file or directory
+diff: /home/devel/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/dwtlift.h: No such file or directory
+diff: /home/devel/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/format_defs.h: No such file or directory
+diff: /home/devel/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/opj_config.h: No such file or directory
+diff: /home/devel/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/opj_config_private.h: No such file or directory
+diff: /home/devel/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/rdwr.h: No such file or directory
+diff: /home/devel/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/rd-wr-ops.c: No such file or directory
+diff: encode_decode.h: No such file or directory
