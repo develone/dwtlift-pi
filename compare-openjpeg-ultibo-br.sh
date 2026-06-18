@@ -40,6 +40,7 @@ diff ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/opj_malloc.c ~/dwtlift
 diff ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/pi.h ~/dwtlift-pi/encode_decode/src/pi.h
 diff ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/pi.c ~/dwtlift-pi/encode_decode/src/pi.c 
 diff ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/opj_stdint.h ~/dwtlift-pi/encode_decode/src/opj_stdint.h
+diff ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/raw.c ~/dwtlift-pi/encode_decode/src/raw.c
 diff ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/raw.h ~/dwtlift-pi/encode_decode/src/raw.h
 diff ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/rdwr.h ~/dwtlift-pi/encode_decode/src/rdwr.h
 diff ~/test-openjpeg-ultibo-b07d/openjpeg/src/lib/openjp2/rd-wr-ops.c ~/dwtlift-pi/encode_decode/src/rd-wr-ops.c
