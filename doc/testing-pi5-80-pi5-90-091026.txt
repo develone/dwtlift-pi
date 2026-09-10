@@ -1,0 +1,19 @@
+09/10/26	see doc/testing-pi4-60-072826.txt for details of the steps below.
+
+devel@pi5-80:~ $ git clone https://github.com/develone/dwtlift-pi.git
+
+devel@pi5-80:~ $ cd dwtlift-pi/encode_decode/src/
+
+devel@pi5-80:~/dwtlift-pi/encode_decode/src $ make clean ; make all
+
+devel@pi5-80:~/dwtlift-pi/encode_decode/src $ make openjp2
+
+devel@pi5-80:~/dwtlift-pi/encode_decode/src $ cd ../
+
+devel@pi5-80:~/dwtlift-pi/encode_decode $ gcc -Wall -g Encoder.c -L. -lopenjp2 -lm -o Encoder
+
+devel@pi5-80:~/dwtlift-pi/encode_decode $ gcc -Wall -g Decoder.c -L. -lopenjp2 -lm -o Decoder
+
+devel@pi5-80:~/dwtlift-pi/encode_decode $ ./Encoder lena_rgb_2048.bmp
+
+devel@pi5-80:~/dwtlift-pi/encode_decode $ ./Decoder 2048 2048 test.j2k
